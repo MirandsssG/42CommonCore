@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:13:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 18:16:37 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/10/22 18:17:25 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,4 @@
 int *ft_range(int min, int max)
 {
 	
-}
+} 
