@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:15:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/23 16:15:01 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/23 16:14:55 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/23 16:17:47 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-#define FT_ABS_H
+#include "ft_point.h"
 
-#define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
-
-#endif
+void set_point(t_point *point)
+{
+point->x = 42;
+point->y = 21;
+}
+int main(void)
+{
+t_point point;
+set_point(&point);
+return (0);
+}

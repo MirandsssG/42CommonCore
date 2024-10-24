@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:15:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/23 16:15:01 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/23 17:45:29 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/23 18:11:47 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ABS_H
-#define FT_ABS_H
+#include <stdio.h>
 
-#define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
+int	ft_strlen(char *str)
+{
+	int	len;
+	int	i;
 
-#endif
+	i = 0;
+	len = 0;
+	while (str[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	return(len);
+}
