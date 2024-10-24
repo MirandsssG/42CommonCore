@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 12:26:10 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/24 13:25:42 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/24 14:30:28 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/24 14:32:01 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	ft_foreach(int *tab, int length, void (*f)(int))
+int ft_count_if(char **tab, int (*f)(char*))
 {
-	if (length > 0)
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (tab[i] != '\0')
 	{
-		f(*tab);
-		ft_foreach(tab + 1, length - 1, f);
+		if (f(tab[i]) == 1)
+			count++;
+		i++;
 	}
-}
-
-void	ft_putnbr(int n)
-{
-	printf("%d\n", n);
-}
-
-int	main()
-{
-	int	tab[] = {1, 2, 3, 4, 5};
-	ft_foreach(tab, 5, &ft_putnbr);
-	return(0);
+	return (count);
 }
