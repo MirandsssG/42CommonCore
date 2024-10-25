@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:07:33 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 18:13:02 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/10/25 15:40:03 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-	int	i;
-	char *dest;
+	int		i;
+	char	*dest;
 
 	i = 0;
 	dest = (char *)malloc(ft_strlen(src) * sizeof(char) + 1);
-
 	if (!dest)
 		return (0);
 	while (src[i] != '\0')
@@ -41,11 +40,12 @@ char *ft_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-
-int	main()
+/*
+int	main(void)
 {
-	char src[] = "Teste123";
-	
+	char	src[] = "Teste123";
+
 	printf("%s", ft_strdup(src));
 	return (0);
 }
+*/

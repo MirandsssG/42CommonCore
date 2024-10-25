@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 15:07:41 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/25 15:15:42 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/22 14:17:37 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/22 14:48:57 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
+/*
+int	main(void)
+{
+	char	str[] = "Ola Mundo";
+
+	printf("%d", ft_strlen(str));
+	return (0);
+}
+*/

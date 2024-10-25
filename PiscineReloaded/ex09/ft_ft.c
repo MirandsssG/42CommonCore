@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 02:13:53 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 02:15:05 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/22 13:55:49 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/22 14:49:33 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_ft(int *nbr)
+void	ft_ft(int *nbr)
 {
-	*nbr = 42;	
+	*nbr = 42;
 }

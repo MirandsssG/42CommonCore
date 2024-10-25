@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:13:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 23:57:37 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/10/25 15:40:17 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int *ft_range(int min, int max)
+int	*ft_range(int min, int max)
 {
 	int	range;
 	int	i;
@@ -33,8 +33,8 @@ int *ft_range(int min, int max)
 	}
 	return (buffer);
 }
-
-int	main()
+/*
+int	main(void)
 {
 	int	min;
 	int	max;
@@ -53,3 +53,4 @@ int	main()
 	}
 	return (0);
 }
+*/

@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 01:54:48 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 02:01:16 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/22 13:52:57 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/25 15:36:48 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
-void ft_print_alphabet(void)
+void	ft_print_alphabet(void)
 {
 	char	c;
 
@@ -28,9 +25,10 @@ void ft_print_alphabet(void)
 		c++;
 	}
 }
-
-int	main()
+/*
+int	main(void)
 {
 	ft_print_alphabet();
 	return (0);
 }
+*/

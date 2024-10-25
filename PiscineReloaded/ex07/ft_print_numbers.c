@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 02:02:46 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 02:07:51 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/22 13:54:10 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/25 15:36:54 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 void	ft_print_numbers(void)
 {
@@ -28,9 +25,10 @@ void	ft_print_numbers(void)
 		c++;
 	}
 }
-
-int	main()
+/*
+int	main(void)
 {
 	ft_print_numbers();
 	return (0);
 }
+*/

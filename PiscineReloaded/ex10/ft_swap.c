@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 02:15:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/22 02:27:28 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/22 13:56:09 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/22 14:50:17 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int	temp;
 

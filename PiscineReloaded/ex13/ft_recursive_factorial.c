@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 15:07:41 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/25 15:15:42 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/22 13:58:23 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/25 16:33:59 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_recursive_factorial(int nb)
 {
-	write(1, &c, 1);
+	int	overflow;
+
+	if (nb == 0)
+	{
+		return (1);
+	}
+	else if (nb < 0)
+	{
+		return (0);
+	}
+	overflow = nb * ft_recursive_factorial(nb - 1);
+	if (overflow < 0)
+		return (0);
+	return (overflow);
 }
+/*
+int	main(void)
+{
+	int	nb;
+
+	nb = 20;
+	printf("%d", ft_recursive_factorial(nb));
+	return (0);
+}
+*/

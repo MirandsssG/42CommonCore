@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:45:29 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/23 18:11:47 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/25 15:08:25 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/25 15:15:31 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_strlen(char *str)
 		len++;
 		i++;
 	}
-	return(len);
+	return (len);
 }
