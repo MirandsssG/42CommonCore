@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:12 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/28 12:39:55 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/28 12:25:43 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/28 12:38:33 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	int				i;
-	unsigned char	c_char;
-	char 			*s_str;
-	
+	int	i;
+	char *s_str;
+
 	i = 0;
-	c_char = (unsigned char)c;
-	s_str = (char *) s;
+	s_str = (char *)s;
 	while (i < n)
 	{
-		s_str[i] = c_char;
+		s_str[i] = 0;
 		i++;
 	}
-	return (s);
+}
+
+int	main()
+{
+	char str[50] = "Ola Mundo";
+
+	ft_bzero(str, 3);
+	printf("%s\n", str);
 }
