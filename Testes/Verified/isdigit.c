@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:19 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/28 23:43:40 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/28 23:01:03 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/28 23:04:17 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_isdigit(int c)
 {
-	size_t	i;
-	char *s_str;
+	return (c >= '0' && c <= '9');
+}
 
-	i = 0;
-	s_str = (char *)s;
-	while (i < n)
-	{
-		s_str[i] = 0;
-		i++;
-	}
+int	main()
+{
+	printf("ft_isdigit(0) = %d\n", ft_isdigit('0'));
+	printf("isdigit(0) = %d\n", isdigit('0'));
+	printf("ft_isdigit(9) = %d\n", ft_isdigit('9'));
+	printf("isdigit(9) = %d\n", isdigit('9'));
+	printf("ft_isdigit(@) = %d\n", ft_isdigit('@'));
+	printf("isdigit(@) = %d\n", isdigit('@'));
 }

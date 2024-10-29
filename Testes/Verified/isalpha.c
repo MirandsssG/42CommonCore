@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 12:25:43 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/28 23:43:06 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/28 22:46:49 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/28 22:57:54 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_isalpha(int c)
 {
-	size_t	i;
-	char *s_str;
-
-	i = 0;
-	s_str = (char *)s;
-	while (i < n)
-	{
-		s_str[i] = 0;
-		i++;
-	}
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
-void	main()
+int	main()
 {
-	char str[50] = "Ola Mundo";
-
-	ft_bzero(str, 5);
-	printf("%p\n", str);
-	
-	char str1[50] = "Ola Mundo";
-	
-	bzero(str, 5);
-	printf("%p\n", str1);	
+	printf("ft_isalpha(a) = %d\n", ft_isalpha('a'));
+	printf("isalpha(a) = %d\n", isalpha('a'));
+	printf("ft_isalpha(A) = %d\n", ft_isalpha('A'));
+	printf("isalpha(A) = %d\n", isalpha('A'));
+	printf("ft_isalpha(@) = %d\n", ft_isalpha('@'));
+	printf("isalpha(@) = %d\n", isalpha('@'));
 }

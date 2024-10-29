@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:00:28 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/28 14:10:36 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/10/28 23:57:05 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -36,5 +37,10 @@ int	main()
 	char dst[50] = "Ola Mundo";
 	char src[50] = "Pao com Manteiga";
 
-	printf("%zu", ft_strlcpy(dst, src, 7));
+	printf("ft_strlcpy = %zu\n", ft_strlcpy(dst, src, 7));
+	
+	char dst1[50] = "Ola Mundo";
+	char src1[50] = "Pao com Manteiga";
+	
+	printf("strlcpy = %zu\n", strlcpy(dst1, src1, 7));
 }

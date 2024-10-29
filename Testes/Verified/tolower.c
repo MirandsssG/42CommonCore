@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   tolower.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:39 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/28 14:19:17 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/29 00:03:02 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/29 00:03:51 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_tolower(int c)
 {
-	int	i;
-	char *s_dest;
-	char *s_src;
+	return (c + 32);
+}
 
-	i = 0;
-	s_dest = (char *)dest;
-	s_src = (char *)src;
-	while (i < n)
-	{
-		s_dest[i] = s_src[i];
-		i++;
-	}
+int	main()
+{
+	printf("ft_tolower(C) = %c\n", ft_tolower('C'));
+	printf("tolower(C) = %c\n", tolower('C'));
 }

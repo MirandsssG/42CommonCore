@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:19 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/28 23:43:40 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/28 14:39:12 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/10/29 00:06:38 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+char *ft_strrchr(const char *s, int c)
 {
-	size_t	i;
-	char *s_str;
-
+	int	i;
+	char *str_s;
+	
 	i = 0;
-	s_str = (char *)s;
-	while (i < n)
-	{
-		s_str[i] = 0;
+	str_s = (char *)s;
+	while (str_s[i] != '\0')
 		i++;
-	}
+	while (i >= 0 && str_s[i] != c)
+		i--;
+	return (&str_s[i]);
+}
+
+int	main()
+{
+	char str[50] = "Olau Mundo";
+	
+	printf("ft_strrchr(Olau Mundo) = %s\n", ft_strrchr(str, 'u'));
+	printf("strrchr(Olau Mundo) = %s\n", strrchr(str, 'u'));
 }

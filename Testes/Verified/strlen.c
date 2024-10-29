@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 12:02:56 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/28 12:39:18 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/28 23:16:05 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/28 23:20:37 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	int				i;
-	unsigned char	c_char;
-	char 			*s_str;
-	
+	int	i;
+
 	i = 0;
-	c_char = (unsigned char)c;
-	s_str = (char *) s;
-	while (i < n)
-	{
-		s_str[i] = c_char;
+	while (s[i] != '\0')
 		i++;
-	}
-	return (s);
+	return (i);
 }
 
 int	main()
 {
 	char str[50] = "Ola Mundo";
 
-	ft_memset(str, '#', 5);
-	printf("%s\n", str);
+	printf("ft_strlen (Ola Mundo) = %zu\n", ft_strlen(str));
+	printf("strlen (Ola Mundo) = %zu", strlen(str));
 }

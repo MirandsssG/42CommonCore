@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:39:12 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/28 14:40:47 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/29 00:20:15 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/29 00:27:14 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char *ft_strrchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	char *str_s;
-	
+	size_t	i;
+	char *s_str;
+
 	i = 0;
-	str_s = (char *)s;
-	while (str_s[i] != '\0')
+	s_str = (char *)s;
+	while (s_str[i] != '\0' && s_str[i] != c && i < n)
 		i++;
-	while (i >= 0 && str_s[i] != c)
-		i--;
-	return (&str_s[i]);
+	return (s_str);
 }
 
 int	main()
 {
-	char str[50] = "Olau Mundo";
+	char str[50] = "Ola Mundo";
 	
-	printf("%s", ft_strrchr(str, 'u'));
+	printf("%p\n", ft_memchr(str, 'u', 5));
+	printf("%p\n", memchr(str, 'u', 5));
 }
