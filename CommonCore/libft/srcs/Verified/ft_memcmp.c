@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 12:25:43 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/10/28 23:43:06 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/27 03:16:16 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/29 13:20:57 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	char *s_str;
-
+	unsigned char *s1_str;
+	unsigned char *s2_str;
+	size_t				i;
+	
+	s1_str = (unsigned char *)s1;
+	s2_str = (unsigned char *)s2;
 	i = 0;
-	s_str = (char *)s;
 	while (i < n)
 	{
-		s_str[i] = 0;
+		if (s1_str[i] != s2_str[i])
+			return (s1_str[i] - s2_str[i]);
 		i++;
 	}
-}
-
-void	main()
-{
-	char str[50] = "Ola Mundo";
-
-	ft_bzero(str, 5);
-	printf("%p\n", str);
-	
-	char str1[50] = "Ola Mundo";
-	
-	bzero(str, 5);
-	printf("%p\n", str1);	
+	return (0);
 }
