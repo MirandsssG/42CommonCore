@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 01:53:59 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/31 16:32:27 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/30 12:24:25 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/10/30 12:59:01 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void *ft_calloc(size_t nelem, size_t elsize)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*pointer;
+	size_t	i;
+	char	*sub;
 
-	pointer = (void *)malloc(nelem * elsize);
-	if (!pointer)
+	i = 0;
+	if (!s)
 		return (NULL);
-	ft_bzero(pointer, nelem * elsize);
-	return (pointer);
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
+	while (i < len - 1 && s[start] != '\0')
+	{
+		sub[i] = s[start];
+		i++;
+		start++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }
