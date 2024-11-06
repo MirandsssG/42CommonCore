@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 12:26:07 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/04 15:31:58 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
+/*   Updated: 2024/11/06 16:27:45 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	main()
 {
-	write(fd, &c, 1);
+	char str[50] = "Ola Mundo";
+	printf("%zu", ft_strlen(str));
 }
