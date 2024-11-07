@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 00:20:15 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/29 13:06:21 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/07 11:09:29 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main()
 {
 	char str[50] = "Ola Mundo";
 	
-	char *result_ft = (char *)ft_memchr(str, 'u', 5);
+	char *result_ft = (char *)ft_memchr(str, 'u', 8);
 	if (result_ft)
 		printf("ft_memchr: Found '%c' at position: %ld\n", *result_ft, result_ft - str);
 	else

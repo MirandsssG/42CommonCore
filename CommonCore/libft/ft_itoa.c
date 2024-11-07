@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:25:18 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/31 16:34:24 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/07 14:23:32 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 static int	ft_abs(int nbr)
 {
-	return ((nbr < 0) ? -nbr : nbr);
+	if (nbr < 0)
+		nbr = -nbr;
+	return (nbr);
 }
 
 char	*ft_strrev(char *str)
 {
-	int	len = 0;
-	int	i = 0;
-	char temp;
+	int		len;
+	int		i;
+	char	temp;
 
+	len = 0;
+	i = 0;
 	while (str[len] != '\0')
 		len++;
 	len--;
@@ -34,17 +38,18 @@ char	*ft_strrev(char *str)
 		i++;
 		len--;
 	}
-	return(str);
+	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		is_neg;
 	size_t	lenght;
 
 	is_neg = (n < 0);
-	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
+	str = ft_calloc(11 + is_neg, sizeof(*str));
+	if (!(str))
 		return (NULL);
 	if (n == 0)
 		str[0] = '0';

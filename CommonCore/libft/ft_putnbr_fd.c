@@ -6,15 +6,17 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:26:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/06 16:09:28 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:17:10 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_abs(int n)
+static int	ft_abs(int n)
 {
-	return ((n < 0) ? -n : n);
+	if (n < 0)
+		n = -n;
+	return (n);
 }
 
 void	ft_putnbr_fd(int n, int fd)
@@ -39,5 +41,5 @@ void	ft_putnbr_fd(int n, int fd)
 	else if (lenght > 0)
 		lenght--;
 	while (lenght >= 0)
-		write (fd, &str[lenght--], 1);
+		write(fd, &str[lenght--], 1);
 }
