@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/07 14:47:24 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:09:41 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(void)
 	const char	*src2 = "Pao com Manteiga";
 	char		dst[50] = "Ola Mundo";
 	char		dst1[50] = "Ola Mundo";
-	char		big[50] = "Ola Mundo";
-	char		little[50] = "a";
+	// char		big[50] = "Ola Mundo";
+	// char		little[50] = "a";
 	char		s1[] = "123456";
 	char		s2[] = "123456";
 	char		s3[] = "123456";
@@ -248,11 +248,11 @@ int	main(void)
 	printf("\n\n");
 
 
-	printf("strnstr:\n");
-	printf("ft_strnstr (Ola Mundo)(a Mundo) = %s\n", ft_strnstr(big, little,
-			7));
-	printf("ft_strnstr (Ola Mundo)(a Mundo) = %s\n", strnstr(big, little, 7));
-	printf("\n\n");
+	// printf("strnstr:\n");
+	// printf("ft_strnstr (Ola Mundo)(a Mundo) = %s\n", ft_strnstr(big, little,
+	// 		7));
+	// printf("strnstr (Ola Mundo)(a Mundo) = %s\n", strnstr(big, little, 7));
+	// printf("\n\n");
 
 	
 	printf("atoi:\n");
@@ -279,7 +279,7 @@ int	main(void)
 	free(arr);
 	printf("\n\n");
 
-	
+
 	printf("strdup:\n");
 	printf("ft_strdup (Ola Mundo) = %s\n", ft_strdup(str5));
 	printf("strdup (Ola Mundo) = %s\n", strdup(str5));
