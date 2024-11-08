@@ -24,7 +24,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(BONUS_OBJS) $(OBJ)
+bonus: fclean $(BONUS_OBJS) $(OBJ)
 	$(AR) $(NAME) $(BONUS_OBJS) $(OBJ)
 
 comp: all
