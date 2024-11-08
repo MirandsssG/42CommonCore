@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:40:53 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/31 16:35:23 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/08 04:51:59 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t				i;
 	unsigned char	c_char;
 	char 			*s_str;
-	
+
 	i = 0;
 	c_char = (unsigned char)c;
 	s_str = (char *) s;
@@ -48,50 +48,46 @@ void *ft_calloc(size_t nelem, size_t elsize)
 
 static int	ft_abs(int nbr)
 {
-	return ((nbr < 0) ? -nbr : nbr);
+	if (nbr < 0)
+		nbr = -nbr;
+	return (nbr);
 }
 
-char	*ft_strrev(char *str)
+static size_t	ft_numlen(int n)
 {
-	int	len = 0;
-	int	i = 0;
-	char temp;
+	size_t	len;
 
-	while (str[len] != '\0')
-		len++;
-	len--;
-	while (len > i)
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
-		i++;
-		len--;
+		n /= 10;
+		len++;
 	}
-	return(str);
+	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		is_neg;
-	size_t	lenght;
+	size_t	length;
 
-	is_neg = (n < 0);
-	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
+	length = ft_numlen(n);
+	str = (char *)ft_calloc(length + 1, sizeof(char));
+	if (!(str))
 		return (NULL);
+	is_neg = (n < 0);
 	if (n == 0)
 		str[0] = '0';
-	lenght = 0;
 	while (n != 0)
 	{
-		str[lenght++] = ft_abs(n % 10) + '0';
+		str[--length] = ft_abs(n % 10) + '0';
 		n = (n / 10);
 	}
 	if (is_neg)
-		str[lenght++] = '-';
-	str[lenght] = '\0';
-	ft_strrev(str);
+		str[0] = '-';
 	return (str);
 }
 

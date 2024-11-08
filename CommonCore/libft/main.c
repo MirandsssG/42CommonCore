@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/07 17:09:41 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/08 04:10:24 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(void)
 	char		str1[50] = "Ola Mundo";
 	char		str2[50] = "Olau Mundo";
 	char		str3[50] = "-123456789";
-	char		str4[50] = "123456789";
 	char		str5[50] = "Ola Mundo";
 	char		str6[50] = "Ola Mundo Teste";
 	char		str7[50] = "Ola Mundo";
@@ -256,10 +255,16 @@ int	main(void)
 
 	
 	printf("atoi:\n");
-	printf("ft_atoi (-123456789) = %d\n", ft_atoi(str3));
-	printf("atoi (-123456789) = %d\n", atoi(str3));
-	printf("ft_atoi (123456789) = %d\n", ft_atoi(str4));
-	printf("atoi (123456789) = %d\n", atoi(str4));
+	printf("ft_atoi (      -123456789) = %d\n", ft_atoi(str3));
+	printf("atoi (      -123456789) = %d\n", atoi(str3));
+	printf("ft_atoi (123456789) = %d\n", ft_atoi("123456789"));
+	printf("atoi (123456789) = %d\n", atoi("123456789"));
+	printf("ft_atoi (2147483647) = %d\n", ft_atoi("2147483647"));
+	printf("atoi (2147483647) = %d\n", atoi("2147483647"));
+	printf("ft_atoi (-2147483648) = %d\n", ft_atoi("-2147483648"));
+	printf("atoi (-2147483648) = %d\n", atoi("-2147483648"));
+	printf("ft_atoi (0) = %d\n", ft_atoi("0"));
+	printf("atoi (0) = %d\n", atoi("0"));
 	printf("\n\n");
 
 	
