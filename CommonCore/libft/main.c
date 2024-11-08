@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/08 04:10:24 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/08 08:30:12 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -375,4 +375,15 @@ int	main(void)
 	write(1, "\n", 1);
 	ft_putnbr_fd(2147483647, 1);
 	write(1, "\n", 1);
+
+	
+	char *data = "Hello, world!";
+    t_list *new_node = ft_lstnew(data);
+    if (new_node == NULL)
+        printf("Node creation failed!\n");
+    if (new_node->content == data && new_node->next == NULL)
+        printf("Node created successfully!\nContent: %s\n", (char *)new_node->content);
+    else
+        printf("Node creation unsuccessful or data mismatch.\n");
+    free(new_node);
 }
