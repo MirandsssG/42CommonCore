@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 07:54:23 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/08 07:55:21 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/08 10:23:09 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	
+	(void)lst;
+	(void)f;
 }

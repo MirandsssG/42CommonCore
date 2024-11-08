@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/08 08:30:12 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/08 12:51:35 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -375,8 +375,10 @@ int	main(void)
 	write(1, "\n", 1);
 	ft_putnbr_fd(2147483647, 1);
 	write(1, "\n", 1);
+	printf("\n\n");
 
 	
+	printf("lstnew:\n");
 	char *data = "Hello, world!";
     t_list *new_node = ft_lstnew(data);
     if (new_node == NULL)
@@ -386,4 +388,44 @@ int	main(void)
     else
         printf("Node creation unsuccessful or data mismatch.\n");
     free(new_node);
+	printf("\n\n");
+
+
+	printf("lstadd_front:\n");
+	t_list *l1;
+	l1 = ft_lstnew((void *)"1");
+	ft_lstadd_front(&l1, ft_lstnew((void *)"a"));
+	printf("add_front (a, l1->content) = %s\n", (char *)l1->content);
+	printf("add_front (a, l1->next->content) = %s\n", (char *)l1->next->content);
+	printf("\n\n");
+
+
+	printf("lstsize:\n");
+	t_list *l;
+	l = ft_lstnew((void *)"1");
+	l->next = ft_lstnew((void *)"2");
+	printf("ft_lstnew (1) = %s\n", (char *)l->content);
+	printf("ft_lstnew (2) = %s\n", (char *)l->next->content);
+	printf("ft_lstsize (new1 + new2) = %d\n", ft_lstsize(l));
+	printf("\n\n");
+
+
+	printf("lstlast:\n");
+	t_list *l2;
+	l2 = ft_lstnew((void *)"1");
+	l2->next = ft_lstnew((void *)"2");
+	l2->next->next = ft_lstnew((void *)"3");
+	l2->next->next->next = ft_lstnew((void *)"4");
+	printf("ft_lstnew (1) = %s\n", (char *)l2->content);
+	printf("ft_lstnew (2) = %s\n", (char *)l2->next->content);
+	printf("ft_lstnew (3) = %s\n", (char *)l2->next->next->content);
+	printf("ft_lstnew (4) = %s\n", (char *)l2->next->next->next->content);
+	l2 = ft_lstlast(l2);
+	printf("ft_lstlast (1, 2, 3, 4) = %s\n", (char *)l2->content);
+	printf("\n\n");
+
+
+	printf("lstlast:\n");
+	
+	printf("\n\n");
 }
