@@ -3,16 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/08 12:51:35 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/11/10 19:02:58 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	st_toupper(unsigned int i, char c)
+static void st_print_list(void *lst)
+{
+	t_list *node = (t_list *)lst;
+	while (node)
+    {
+        printf("%d -> ", *(int *)node->content);
+        node = node->next;
+    }
+    printf("NULL\n");
+}
+
+static void	*st_double(void *content)
+{
+	int *new_value = malloc(sizeof(int));
+	if (!new_value)
+		return NULL;
+	*new_value = (*(int *)content) * 2;
+	return new_value;
+}
+
+static void	st_print_content(void *content)
+{
+    printf("%s\n", (char *)content);
+}
+
+static void	st_del(void *content)
+{
+	free(content);
+}
+
+static char	st_toupper(unsigned int i, char c)
 {
 	(void)i;
 	if (c >= 'a' && c <= 'z')
@@ -20,7 +50,7 @@ char	st_toupper(unsigned int i, char c)
 	return (c);
 }
 
-void	st_toupper1(unsigned int i, char *c)
+static void	st_toupper1(unsigned int i, char *c)
 {
 	(void)i;
 	if (*c >= 'a' && *c <= 'z')
@@ -308,7 +338,17 @@ int	main(void)
 	printf("\n\n");
 
 
-	printf("split:\n");
+	printf("split (Ola Mundo,tudo a correr bem):\n");
+	char const	*str17 = "Ola Mundo,tudo a correr bem";
+	char delimiter = ' ';
+	char **result;
+	int	i1 = 0;
+	result = ft_split(str17, delimiter);
+	while (result[i1] != NULL)
+    {
+        printf("Palavra %d: %s\n", i1 + 1, result[i1]);
+        i1++;
+    }
 	printf("\n\n");
 
 	
@@ -425,7 +465,93 @@ int	main(void)
 	printf("\n\n");
 
 
-	printf("lstlast:\n");
-	
+	printf("lstaddback:\n");
+	t_list *l3;
+	l3 = ft_lstnew((void *)"1");
+	l3->next = ft_lstnew((void *)"2");
+	l3->next->next = ft_lstnew((void *)"3");
+	l3->next->next->next = ft_lstnew((void *)"4");
+	printf("ft_lstnew (1) = %s\n", (char *)l3->content);
+	printf("ft_lstnew (2) = %s\n", (char *)l3->next->content);
+	printf("ft_lstnew (3) = %s\n", (char *)l3->next->next->content);
+	printf("ft_lstnew (4) = %s\n", (char *)l3->next->next->next->content);
+	t_list *new_node1 = ft_lstnew((void *)"5");
+	ft_lstadd_back(&l3, new_node1);
+	printf("ft_lstadd_back (5) = ");
+	t_list *temp = l3;
+	while (temp != NULL)
+	{
+		printf("%s ", (char *)temp->content);
+		temp = temp->next; 
+	}
 	printf("\n\n");
+
+	
+	printf("lstdelone:\n");
+	t_list *node = malloc(sizeof(t_list));
+	node->content = ft_strdup("Hello, world!");
+	node->next = NULL;
+	printf("Before deletion: %s\n", (char *)node->content);
+	ft_lstdelone(node, st_del);
+	printf("After deletion: Node deleted.\n");
+	printf("\n\n");
+
+
+	printf("lstclear:\n");
+	t_list *lst = NULL;
+    t_list *new_node2;
+
+    // Criando uma lista com alguns elementos
+    new_node2 = ft_lstnew(malloc(sizeof(int)));
+    *(int *)new_node2->content = 10;
+    ft_lstadd_front(&lst, new_node2);
+
+    new_node2 = ft_lstnew(malloc(sizeof(int)));
+    *(int *)new_node2->content = 20;
+    ft_lstadd_front(&lst, new_node2);
+
+    new_node2 = ft_lstnew(malloc(sizeof(int)));
+    *(int *)new_node2->content = 30;
+    ft_lstadd_front(&lst, new_node2);
+
+    printf("Lista antes de ft_lstclear:\n");
+    st_print_list(lst);
+
+    // Chamando ft_lstclear para limpar a lista
+    ft_lstclear(&lst, st_del);
+
+    printf("Lista depois de ft_lstclear:\n");
+    st_print_list(lst);  // Deveria imprimir "NULL", porque a lista foi limpaprintf("\n\n");
+	printf("\n\n");
+
+
+	printf("lstitter:\n");
+	t_list *l5;
+	l5 = ft_lstnew((void *)"1");
+	l5->next = ft_lstnew((void *)"2");
+	l5->next->next = ft_lstnew((void *)"3");
+	l5->next->next->next = ft_lstnew((void *)"4");
+	printf("ft_lstnew (1) = %s\n", (char *)l5->content);
+	printf("ft_lstnew (2) = %s\n", (char *)l5->next->content);
+	printf("ft_lstnew (3) = %s\n", (char *)l5->next->next->content);
+	printf("ft_lstnew (4) = %s\n", (char *)l5->next->next->next->content);
+	printf("f = print list content\n");
+	ft_lstiter(l5, st_print_content);
+	printf("\n\n");
+
+
+	printf("lstmap:\n");
+	t_list *list = ft_lstnew(malloc(sizeof(int)));
+	*(int *)list->content = 1;
+	ft_lstadd_back(&list, ft_lstnew(malloc(sizeof(int))));
+	*(int *)list->next->content = 2;
+	ft_lstadd_back(&list, ft_lstnew(malloc(sizeof(int))));
+	*(int *)list->next->next->content = 3;
+	printf("Original list:\n");
+	st_print_list(list);
+	t_list *mapped_list = ft_lstmap(list, st_double, st_del);
+	printf("\nMapped list (x2):\n");
+	st_print_list(mapped_list);
+	ft_lstclear(&list, st_del);
+	ft_lstclear(&mapped_list, st_del);
 }
