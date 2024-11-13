@@ -29,10 +29,10 @@ bonus: .bonus
 
 .bonus: $(BONUS_OBJS) $(OBJ)
 	$(AR) $(NAME) $(BONUS_OBJS) $(OBJ)
-	touch .bonus
+	@touch .bonus
 
 comp: all
-	@$(CC) $(CFLAGS) -lbsd $(MAIN) $(NAME) 
+	$(CC) $(CFLAGS) -lbsd $(MAIN) $(NAME) 
 	@./a.out
 
 .PHONY: all clean fclean re comp bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:25:08 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/13 15:45:42 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:03:30 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,40 +33,71 @@ static size_t	word_count(char const *s, char c)
 	return (count);
 }
 
-static void	combine_w(char **words, char const *s, char c, size_t word_c)
+static void	free_words(char **words, size_t count)
 {
-	char *ptr_c;
-
-	while (*s && *s == c)
-		s++;
-	while (word_c--)
+	if (count == 0)
 	{
-		ptr_c = ft_strchr(s, c);
-		if (ptr_c != NULL)
-		{
-			*words = ft_substr(s, 0, ptr_c - s);
-			while (*ptr_c && *ptr_c == c)
-				ptr_c++;
-			s = ptr_c;
-		}
-		else
-			*words = ft_substr(s, 0, ft_strlen(s));
-		words++;
+		free(words);
+		return ;
 	}
-	*words = NULL;
+	free(words[count - 1]);
+	free_words(words, count - 1);
 }
 
-char **ft_split(char const *s, char c)
+static char	*split_word(char const **s, char c)
+{
+	const char	*ptr_c;
+	char		*word;
+
+	while (**s && **s == c)
+		(*s)++;
+	ptr_c = ft_strchr(*s, c);
+	if (ptr_c != NULL)
+	{
+		word = ft_substr(*s, 0, ptr_c - *s);
+		*s = ptr_c;
+		while (**s && **s == c)
+			(*s)++;
+	}
+	else
+	{
+		word = ft_substr(*s, 0, ft_strlen(*s));
+		*s += ft_strlen(*s);
+	}
+	return (word);
+}
+
+static char	**combine_w(char **words, char const *s, char c, size_t word_c)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < word_c)
+	{
+		words[i] = split_word(&s, c);
+		if (!words[i])
+		{
+			free_words(words, i);
+			return (NULL);
+		}
+		i++;
+	}
+	words[i] = NULL;
+	return (words);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	size_t	word_c;
 	char	**words;
-	
+
 	if (!s)
-		return NULL;
+		return (NULL);
 	word_c = word_count(s, c);
 	words = malloc(sizeof(char *) * (word_c + 1));
 	if (!words)
-		return NULL;
-	combine_w(words, s, c, word_c);
+		return (NULL);
+	if (!combine_w(words, s, c, word_c))
+		return (NULL);
 	return (words);
 }
