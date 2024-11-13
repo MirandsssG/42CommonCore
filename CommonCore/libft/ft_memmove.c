@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 03:14:48 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/07 17:28:50 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/13 15:07:46 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (s_dest > s_src)
 	{
 		i = n;
-		while (i > 0)
-		{
-			i--;
+		while (i-- > 0)
 			s_dest[i] = s_src[i];
-		}
 	}
 	else
 	{
-		i = 0;
-		while (i < n)
-		{
-		s_dest[i] = s_src[i];
-		i++;
-		}
-	
+		i = -1;
+		while (++i < n)
+			s_dest[i] = s_src[i];
 	}
 	return (s_dest);
 }

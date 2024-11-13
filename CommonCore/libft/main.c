@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/10 19:02:58 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/13 11:59:41 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	main(void)
 	const char	*src2 = "Pao com Manteiga";
 	char		dst[50] = "Ola Mundo";
 	char		dst1[50] = "Ola Mundo";
-	// char		big[50] = "Ola Mundo";
-	// char		little[50] = "a";
+	char		big[50] = "Ola Mundo";
+	char		little[50] = "a";
 	char		s1[] = "123456";
 	char		s2[] = "123456";
 	char		s3[] = "123456";
@@ -277,11 +277,11 @@ int	main(void)
 	printf("\n\n");
 
 
-	// printf("strnstr:\n");
-	// printf("ft_strnstr (Ola Mundo)(a Mundo) = %s\n", ft_strnstr(big, little,
-	// 		7));
-	// printf("strnstr (Ola Mundo)(a Mundo) = %s\n", strnstr(big, little, 7));
-	// printf("\n\n");
+	printf("strnstr:\n");
+	printf("ft_strnstr (Ola Mundo)(a Mundo) = %s\n", ft_strnstr(big, little,
+			7));
+	printf("strnstr (Ola Mundo)(a Mundo) = %s\n", strnstr(big, little, 7));
+	printf("\n\n");
 
 	
 	printf("atoi:\n");
@@ -322,6 +322,8 @@ int	main(void)
 
 	
 	printf("substr:\n");
+	printf("ft_substr(Ola Mundo)(4 start)(6 len) = %s\n", ft_substr(str5, 4,
+			6));
 	printf("ft_substr(Ola Mundo)(4 start)(6 len) = %s\n", ft_substr(str5, 4,
 			6));
 	printf("\n\n");
@@ -516,10 +518,7 @@ int	main(void)
 
     printf("Lista antes de ft_lstclear:\n");
     st_print_list(lst);
-
-    // Chamando ft_lstclear para limpar a lista
     ft_lstclear(&lst, st_del);
-
     printf("Lista depois de ft_lstclear:\n");
     st_print_list(lst);  // Deveria imprimir "NULL", porque a lista foi limpaprintf("\n\n");
 	printf("\n\n");

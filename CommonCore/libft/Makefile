@@ -18,14 +18,18 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJS)
+	rm -f .bonus
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-bonus: fclean $(BONUS_OBJS) $(OBJ)
+bonus: .bonus
+
+.bonus: $(BONUS_OBJS) $(OBJ)
 	$(AR) $(NAME) $(BONUS_OBJS) $(OBJ)
+	touch .bonus
 
 comp: all
 	@$(CC) $(CFLAGS) -lbsd $(MAIN) $(NAME) 

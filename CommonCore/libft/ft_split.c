@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:25:08 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/10 09:01:58 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/13 15:45:42 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	combine_w(char **words, char const *s, char c, size_t word_c)
 			s = ptr_c;
 		}
 		else
-			*words = ft_substr(s, 0, ft_strlen(s) + 1);
+			*words = ft_substr(s, 0, ft_strlen(s));
 		words++;
 	}
 	*words = NULL;
