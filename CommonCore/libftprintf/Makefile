@@ -1,5 +1,4 @@
 CC = cc
-INCLUDE = include
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rc
 NAME = libftprintf.a
