@@ -21,7 +21,7 @@ fclean: clean
 re: fclean all
 
 comp: all
-	$(CC) $(CFLAGS) -lbsd $(MAIN) $(NAME) 
+	$(CC) $(CFLAGS) -L./libft -lft $(MAIN) $(NAME)
 	@./a.out
 
 .PHONY: all clean fclean re comp
