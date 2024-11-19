@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:01:45 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/19 11:42:14 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/11/18 15:02:36 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/19 14:24:11 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hex_len(unsigned int num)
+int	ft_ptr_len(uintptr_t num)
 {
 	int	len;
 
+	if (num == 0)
+		return (1);
 	len = 0;
 	while (num != 0)
 	{
@@ -25,32 +27,37 @@ int	ft_hex_len(unsigned int num)
 	return (len);
 }
 
-void	ft_put_hex(unsigned int num, const char format)
+void	ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
-		ft_put_hex(num / 16, format);
-		ft_put_hex(num % 16, format);
+		ft_put_ptr(num / 16);
+		ft_put_ptr(num % 16);
 	}
 	else
 	{
 		if (num <= 9)
 			ft_putchar_fd((num + '0'), 1);
 		else
-		{
-			if (format == 'x')
-				ft_putchar_fd((num - 10 + 'a'), 1);
-			if (format == 'X')
-				ft_putchar_fd((num - 10 + 'A'), 1);
-		}
+			ft_putchar_fd((num - 10 + 'a'), 1);
 	}
 }
 
-int	ft_print_hex(unsigned int num, const char format)
+int	ft_print_ptr(unsigned long long ptr)
 {
-	if (num == 0)
-		return (write (1, "0", 1));
+	int	p_length;
+
+	p_length = 0;
+	if (ptr == 0)
+	{
+		ft_putstr("(nil)");
+		p_length += 5;
+	}
 	else
-		ft_put_hex(num, format);
-	return (ft_hex_len(num));
+	{
+		p_length += write(1, "0x", 2);
+		ft_put_ptr(ptr);
+		p_length += ft_ptr_len(ptr);
+	}
+	return (p_length);
 }

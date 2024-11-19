@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:36:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/19 11:29:47 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:24:20 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	ft_formats(va_list args, const char format)
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
+	int		i;
 	va_list	args;
-	int	p_lenght;
-	
+	int		p_lenght;
+
 	i = 0;
 	p_lenght = 0;
 	va_start(args, str);
