@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:36:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/18 17:51:43 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/19 11:29:47 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,13 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			p_lenght += ft_formats(args, str[i + 1]);
-			i++;
+			if (str[i + 1] == '\0')
+				return (1);
+			else
+			{
+				p_lenght += ft_formats(args, str[i + 1]);
+				i++;
+			}
 		}
 		else
 			p_lenght += ft_printchar(str[i]);

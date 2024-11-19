@@ -18,7 +18,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJS)
-	rm -f .bonus
+	@rm -f .bonus
 
 fclean: clean
 	rm -f $(NAME)

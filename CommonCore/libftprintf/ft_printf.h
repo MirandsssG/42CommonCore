@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:18:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/18 17:51:26 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2024/11/19 11:38:02 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <stdlib.h>
 
 int	ft_printf(const char *str, ...);
 
@@ -48,5 +49,15 @@ int	ft_ptr_len(uintptr_t num);
 void	ft_put_ptr(uintptr_t num);
 
 int	ft_print_ptr(unsigned long long ptr);
+
+char	*ft_itoa(int n);
+
+void	ft_putchar_fd(char c, int fd);
+
+void	*ft_memset(void *s, int c, size_t n);
+
+void	ft_bzero(void *s, size_t n);
+
+void	*ft_calloc(size_t nelem, size_t elsize);
 
 #endif
