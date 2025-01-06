@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:02:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/18 17:43:28 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/01/06 13:00:09 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	ft_ptr_len(uintptr_t num)
 {
@@ -49,7 +48,7 @@ int	ft_print_ptr(unsigned long long ptr)
 	int	p_length;
 
 	p_length = 0;
-	p_length += write (1, "0x", 2);
+	p_length += write(1, "0x", 2);
 	if (ptr == 0)
 		p_length += write(1, "0", 1);
 	else

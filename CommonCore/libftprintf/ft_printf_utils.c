@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:02:30 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/18 15:09:59 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/01/06 13:00:15 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
-#include <stdlib.h>
 
 void	ft_putstr(char *str)
 {
@@ -21,7 +19,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write (1, &str[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 }
@@ -29,7 +27,7 @@ void	ft_putstr(char *str)
 int	ft_printstr(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	if (str == NULL)
 	{
@@ -38,16 +36,16 @@ int	ft_printstr(char *str)
 	}
 	while (str[i])
 	{
-		write (1, &str[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 	return (i);
 }
 
-int ft_printnbr(int n)
+int	ft_printnbr(int n)
 {
-	int	len;
-	char *num;
+	int		len;
+	char	*num;
 
 	len = 0;
 	num = ft_itoa(n);
@@ -58,6 +56,6 @@ int ft_printnbr(int n)
 
 int	ft_printpercent(void)
 {
-	write (1, "%", 1);
+	write(1, "%", 1);
 	return (1);
 }
