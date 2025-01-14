@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:15:34 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/07 17:47:50 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/27 03:14:12 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/14 13:47:16 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int		i;
-	char	*str_s;
+	size_t			i;
+	unsigned char	c_char;
+	char			*s_str;
 
 	i = 0;
-	str_s = (char *)s;
-	while (str_s[i] != '\0')
-		i++;
-	if (c == '\0')
-		return (&str_s[i]);
-	while (i >= 0)
+	c_char = (unsigned char)c;
+	s_str = (char *)s;
+	while (i < n)
 	{
-		if (str_s[i] == (char)c)
-			return (&str_s[i]);
-		i--;
+		s_str[i] = c_char;
+		i++;
 	}
-	return (NULL);
+	return (s);
 }

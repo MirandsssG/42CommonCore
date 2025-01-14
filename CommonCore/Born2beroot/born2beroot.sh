@@ -4,10 +4,11 @@
 arch=$(uname -a) #prints the architecture of the OS, except if the processor is unknown
 
 # CPU PHYSICAL
-cpup=$(grep "physical id" /proc/cpuinfo | wc -l) #prints the number of physical processors from the file cpuinfo
-
+sockets=$(lscpu | grep "Socket(s):" | awk '{print $2}')
+cores=$(lscpu | grep "Core(s) per socket:" | awk '{print $4}')
+cpup=$(($sockets * $cores)) #prints the physical CPU's multiplying the sockets with the cores
 # CPU VIRTUAL
-cpuv=$(grep processor /proc/cpuinfo | wc -l) #prints the number of virtual cores from the file cpuinfo
+cpuv=$(nproc --all) #prints the virtual cpus
 
 # RAM
 ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}') #prints total memory
@@ -30,7 +31,7 @@ last_boot=$(who -b | awk '$1 == "system" {print $3 " " $4}') #prints the last da
 #contains "system" and only showing the 3rd column(date) and the 4th column(time)
 
 # LVM USE
-lvm=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi) #prints yes or no depending on if the it finds a line with "lvm"
+lvm=$(if [ $(lsblk | awk '{print $6}' | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi) #prints yes or no depending on if the it finds a line with "lvm"
 
 # TCP CONNECTIONS
 tcp=$(ss -ta | grep ESTAB | wc -l) #prints the number of TCP connections using "ss" and filtering only TCP connections with "-ta" and filtering only established
@@ -45,10 +46,9 @@ mac=$(ip link | grep "link/ether" | awk '{print $2}') #prints the MAC Address by
 # the MAC and printing the 2nd column
 
 # SUDO
-sudo=$(journalctl _COMM=sudo | grep COMMAND | wc -l) #prints the number of commands executed with sudo using journalctl which is used to collect system logs,
-#filtering with _COMM=sudo so only sudo logs appear and filtering only logs with COMMAND in them
+sudo=$(sudo grep COMMAND /var/log/sudo/sudo_config | wc -l) #prints the number of commands executed with sudo
 
-echo "	#Architecture: $arch
+wall "	#Architecture: $arch
 	#CPU physical : $cpup
 	#vCPU : $cpuv
 	#Memory Usage: $ram_used/${ram_total}MB ($ram_percent%)
@@ -60,3 +60,4 @@ echo "	#Architecture: $arch
 	#User log: $user_log
 	#Network: IP $ip ($mac)
 	#Sudo : $sudo cmd"
+

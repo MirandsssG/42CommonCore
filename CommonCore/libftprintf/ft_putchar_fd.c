@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:13:38 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/10/28 14:19:31 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/30 12:26:07 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/14 13:47:23 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	write(fd, &c, 1);
 }

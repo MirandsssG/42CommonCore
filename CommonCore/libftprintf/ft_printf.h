@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:18:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/06 12:51:24 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:54:59 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
+# include <stdio.h>
+// # include "./libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 
@@ -50,5 +51,17 @@ int		ft_ptr_len(uintptr_t num);
 void	ft_put_ptr(uintptr_t num);
 
 int		ft_print_ptr(unsigned long long ptr);
+
+
+
+void	ft_putchar_fd(char c, int fd);
+
+void	*ft_memset(void *s, int c, size_t n);
+
+char	*ft_itoa(int n);
+
+void	*ft_calloc(size_t nelem, size_t elsize);
+
+void	ft_bzero(void *s, size_t n);
 
 #endif

@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 07:52:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/08 12:45:20 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/27 03:14:19 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/14 13:47:04 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_bzero(void *s, size_t n)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	ft_memset(s, 0, n);
 }

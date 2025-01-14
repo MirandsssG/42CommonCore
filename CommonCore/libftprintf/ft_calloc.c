@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:16:33 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/13 14:55:40 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/30 01:53:59 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/14 13:47:12 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_atoi(const char *nptr)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	int	result;
-	int	i;
-	int	sign;
+	void	*pointer;
 
-	result = 0;
-	i = 0;
-	sign = 1;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i++] == '-')
-			sign = -1;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		result = result * 10 + (nptr[i++] - '0');
-	return (result * sign);
+	pointer = (void *)malloc(nelem * elsize);
+	if (!pointer)
+		return (NULL);
+	ft_bzero(pointer, nelem * elsize);
+	return (pointer);
 }

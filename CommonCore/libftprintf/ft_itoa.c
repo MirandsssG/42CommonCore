@@ -1,45 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 12:26:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/07 14:17:10 by dluis-ma         ###   ########.fr       */
+/*   Created: 2024/10/30 12:25:18 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/14 13:47:13 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int	ft_abs(int n)
+static int	ft_abs(int nbr)
 {
-	if (n < 0)
-		n = -n;
-	return (n);
+	if (nbr < 0)
+		nbr = -nbr;
+	return (nbr);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+static size_t	ft_numlen(int n)
 {
-	char	str[13];
-	int		is_neg;
-	int		lenght;
+	size_t	len;
 
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		is_neg;
+	size_t	length;
+
+	length = ft_numlen(n);
+	str = (char *)ft_calloc(length + 1, sizeof(char));
+	if (!(str))
+		return (NULL);
 	is_neg = (n < 0);
-	lenght = 0;
-	ft_bzero(str, 13);
 	if (n == 0)
 		str[0] = '0';
 	while (n != 0)
 	{
-		str[lenght] = ft_abs(n % 10) + '0';
+		str[--length] = ft_abs(n % 10) + '0';
 		n = (n / 10);
-		lenght++;
 	}
 	if (is_neg)
-		str[lenght] = '-';
-	else if (lenght > 0)
-		lenght--;
-	while (lenght >= 0)
-		write(fd, &str[lenght--], 1);
+		str[0] = '-';
+	return (str);
 }
