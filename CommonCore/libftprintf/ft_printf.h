@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:18:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/14 13:54:59 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:12:21 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ int		ft_ptr_len(uintptr_t num);
 void	ft_put_ptr(uintptr_t num);
 
 int		ft_print_ptr(unsigned long long ptr);
-
-
 
 void	ft_putchar_fd(char c, int fd);
 

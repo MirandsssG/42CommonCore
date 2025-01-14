@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:02:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/06 13:00:09 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:15:55 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,10 @@ int	ft_print_ptr(unsigned long long ptr)
 	int	p_length;
 
 	p_length = 0;
-	p_length += write(1, "0x", 2);
 	if (ptr == 0)
-		p_length += write(1, "0", 1);
-	else
-	{
-		ft_put_ptr(ptr);
-		p_length += ft_ptr_len(ptr);
-	}
+		return (write(1, "(nil)", 5));
+	p_length += write(1, "0x", 2);
+	ft_put_ptr(ptr);
+	p_length += ft_ptr_len(ptr);
 	return (p_length);
 }
