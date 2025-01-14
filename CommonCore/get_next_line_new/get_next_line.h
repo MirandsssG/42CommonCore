@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:41:25 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/14 14:29:36 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:49:59 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(char *str, int new_line);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif
