@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:18:00 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/14 14:12:21 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/15 12:50:11 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-// # include "./libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 
