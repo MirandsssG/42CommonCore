@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:41:39 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/14 14:56:36 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/19 01:03:42 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,39 +41,39 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main(void)
-// {
-// 	char *line;
+int main(void)
+{
+	char *line;
 
-//     int fd = open("test_file.txt", O_RDONLY);
-//     if (fd < 0)
-//     {
-//         perror("Error opening file");
-//         return (1);
-//     }
+    int fd = open("test_file.txt", O_RDONLY);
+    if (fd < 0)
+    {
+        perror("Error opening file");
+        return (1);
+    }
 
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
-//     line = get_next_line(fd);
-// 	printf("Line: %s", line);
-// 	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
+    line = get_next_line(fd);
+	printf("Line: %s", line);
+	free(line);
 
-//     close(fd);
-//     return (0);
-// }
+    close(fd);
+    return (0);
+}
