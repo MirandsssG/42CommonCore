@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:41:53 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/14 14:55:14 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:32:22 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ size_t	ft_strlen(char *str, int new_line)
 			i++;
 	}
 	else
-		while (str[i] != '\0')
-			i++;
+		while (str[i++] != '\0')
+			;
 	return (i);
 }
 
