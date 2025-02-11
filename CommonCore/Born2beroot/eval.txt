@@ -14,6 +14,7 @@ The purpose of a virtual machine:
 What is aptitude, apt and APPArmor:
 -Tanto aptitude como o apt sao gerenciadores de pacotes utilizados em Linux, utilizados para instalar programas novos na maquina, o apt e text based 
 enquanto o aptitude usa uma interface grafica
+-aa-status
 
 What is UFW:
 -Uncomplicated Firewall e utilizado para gerenciar iptables, fazendo com que gerir regras de firewall em portas de rede mais facil e com comandos simples
