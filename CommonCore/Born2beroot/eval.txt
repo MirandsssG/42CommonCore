@@ -9,7 +9,7 @@ Difference between Rocky and Debian:
 estabilidade e flexibilidade
 
 The purpose of a virtual machine:
--As maquinas virtuais sao utilizadas pela sua seguranca, para testar aplicacoes em sistemas operativos diferentes e pela sua isolacao
+-As maquinas virtuais sao utilizadas pela sua seguranca, para testar aplicacoes em sistemas operativos devido a sua isolacao
 
 What is aptitude, apt and APPArmor:
 -Tanto aptitude como o apt sao gerenciadores de pacotes utilizados em Linux, utilizados para instalar programas novos na maquina, o apt e text based 
@@ -19,8 +19,8 @@ What is UFW:
 -Uncomplicated Firewall e utilizado para gerenciar iptables, fazendo com que gerir regras de firewall em portas de rede mais facil e com comandos simples
 
 What is SSH:
--Secure Shell e um protocolo usado para aceder seguramente a dispositivos e gerencia los, pode ser utilizado para aceder a outro computador e executar 
-comandos e transferir ficheiros seguramente sendo que e encriptado
+-Secure Shell e um protocolo usado para aceder remotamente e seguramente a dispositivos e gerencia los, pode ser utilizado para aceder a outro computador e
+executar comandos e transferir ficheiros seguramente sendo que e encriptado
 
 Check OS:
 -uname -a
