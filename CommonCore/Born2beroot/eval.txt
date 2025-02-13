@@ -89,6 +89,7 @@ Delete this rule:
 
 Check that SSH is installed:
 -sudo service ssh status
+-vim /etc/ssh/sshd_config
 
 Explain SSH and value of using it:
 -Secure Shell e um protocolo usado para aceder seguramente a dispositivos e gerencia los, pode ser utilizado para aceder a outro computador e executar 
