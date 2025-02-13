@@ -48,6 +48,7 @@ Delete this rule:
 
 Check that SSH is installed:
 -sudo service ssh status
+-vim /etc/ssh/sshd_config
 
 Use SSH to log into new user:
 -ssh newuser@ip -p 4242
