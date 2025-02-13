@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:20:06 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/13 11:59:41 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:03:39 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void st_print_list(void *lst)
     printf("NULL\n");
 }
 
-static void	*st_double(void *content)
+static void	*st_double(void *content) 
 {
 	int *new_value = malloc(sizeof(int));
 	if (!new_value)
