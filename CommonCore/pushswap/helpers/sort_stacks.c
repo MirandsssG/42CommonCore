@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:04:48 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/13 14:09:26 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/17 12:12:07 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void    sort_stacks(t_stack_node **a, t_stack_node **b)
     while (len_a-- > 3 && !stack_sorted(*a))
     {
         initialize_nodes_a(*a, *b);
-        
+        move_a_to_b(a, b);
     }
+    sort_three(a);
+    while (*b)
+    {
+        initialize_nodes_b(*a, *b);
+        move_b_to_a(a, b);
+    }
+    current_index(*a);
+    min_on_top(a);
 }
