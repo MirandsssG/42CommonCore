@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers2.c                                         :+:      :+:    :+:   */
+/*   initialize_nodes_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:21:10 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/14 07:23:28 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/18 15:19:43 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-current_index(t_stack_node *stack)
+void    current_index(t_stack_node *stack)
 {
     int i;
     int median;

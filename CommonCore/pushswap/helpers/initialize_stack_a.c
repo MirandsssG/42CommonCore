@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_a.c                                     :+:      :+:    :+:   */
+/*   initialize_stack_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:33:37 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/13 14:53:27 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/18 15:25:10 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ void    initialize_stack_a(t_stack_node **a, char **av)
         append_node(a, (int)n);
         i++;
     }
+}
+
+t_stack_node    *get_cheapest(t_stack_node *stack)
+{
+    if (!stack)
+        return (NULL);
+    while (stack)
+    {
+        if (stack->cheapest)
+            return (stack);
+        stack = stack->next;
+    }
+    return (NULL);
 }

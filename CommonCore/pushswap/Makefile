@@ -5,8 +5,7 @@ NAME = pushswap.a
 MAIN = main.c
 LIBFT = /includes/libft/libft.a
 FT_PRINTF = /includes/libftprintf/libftprintf.a
-OPERATION_DIR = operations/move.c \
-					operations/push.c \
+OPERATION_DIR = operations/push.c \
 					operations/rev_rotate.c \
 					operations/rotate.c \
 					operations/swap.c
