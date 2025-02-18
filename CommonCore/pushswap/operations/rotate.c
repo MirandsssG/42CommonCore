@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:19:59 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/17 19:08:03 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/18 13:21:14 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ void    rr(t_stack_node **a, t_stack_node **b, bool print)
     rotate(b);
     if (!print)
         ft_printf("rr\n");
+}
+
+void    rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+{
+    while (*b != cheapest_node->target_node && *a != cheapest_node)
+        rr(a, b, false);
+    current_index(*a);
+    current_index(*b);
 }
