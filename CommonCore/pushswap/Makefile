@@ -3,8 +3,8 @@ CFLAGS = -Wall -Wextra -Werror -I
 AR = ar rc
 NAME = pushswap.a
 MAIN = main.c
-LIBFT = /includes/libft/libft.a
-FT_PRINTF = /includes/libftprintf/libftprintf.a
+LIBFT = ./includes/libft/libft.a
+FT_PRINTF = ./includes/libftprintf/libftprintf.a
 OPERATION_DIR = operations/push.c \
 					operations/rev_rotate.c \
 					operations/rotate.c \
@@ -22,8 +22,8 @@ OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
+	$(AR) $(NAME) $(OBJ) $(LIBFT) $(FT_PRINTF)
 
 clean:
 	rm -f $(OBJ)
