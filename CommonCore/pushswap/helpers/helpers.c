@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers1.c                                         :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:00:43 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/17 12:29:58 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 15:04:26 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,4 @@ int stack_len(t_stack_node *stack)
         i++;
     }
     return (i);
-}
-
-bool	stack_sorted(t_stack_node *stack)
-{
-    if (!stack)
-        return (1);
-    while (stack->next)
-    {
-        if (stack->nbr > stack->next->nbr)
-            return (false);
-        stack = stack->next;
-    }
-    return (true);
 }

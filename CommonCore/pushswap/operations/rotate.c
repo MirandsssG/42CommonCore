@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:19:59 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/18 13:21:14 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 14:50:05 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    ra(t_stack_node **a, bool print)
         ft_printf("ra\n");
 }
 
-void    rb(t_stack_node **a, bool print)
+void    rb(t_stack_node **b, bool print)
 {
     rotate(b);
     if (!print)

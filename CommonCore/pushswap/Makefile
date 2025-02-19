@@ -1,10 +1,8 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I
+CFLAGS = -Wall -Wextra -Werror -Iincludes/
 AR = ar rc
-NAME = pushswap.a
+NAME = pushswap
 MAIN = main.c
-LIBFT = ./includes/libft/libft.a
-FT_PRINTF = ./includes/libftprintf/libftprintf.a
 OPERATION_DIR = operations/push.c \
 					operations/rev_rotate.c \
 					operations/rotate.c \
@@ -19,11 +17,19 @@ HELPERS_DIR = helpers/errors.c \
 					helpers/stack_sorted.c
 SRCS = $(OPERATION_DIR) $(HELPERS_DIR)
 OBJ = $(SRCS:.c=.o)
+LIBFTPRINTF = includes/libftprintf/libftprintf.a
+LIBFT = includes/libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
-	$(AR) $(NAME) $(OBJ) $(LIBFT) $(FT_PRINTF)
+$(NAME): $(OBJ) $(LIBFTPRINTF) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFTPRINTF) $(LIBFT) -o $(NAME)
+
+$(LIBFTPRINTF):
+	make -C includes/libftprintf/ -f makefile
+
+$(LIBFT):
+	make -C includes/libft/ -f makefile
 
 clean:
 	rm -f $(OBJ)

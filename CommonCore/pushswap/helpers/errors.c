@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:19:08 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/17 12:50:16 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 14:52:24 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	error_syntax(char *str_n)
 {
     if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
         return (1);
-    if ((*str_n == '+' || *str_n == '-' ) && !(*str_n[1] >= '0' && *str_n[1] <= '9'))
+    if ((*str_n == '+' || *str_n == '-' ) && !(str_n[1] >= '0' && str_n[1] <= '9'))
         return (1);
     while (*++str_n)
     {
@@ -47,7 +47,7 @@ void	free_stack(t_stack_node **stack)
     if (!stack)
         return ;
     current = *stack;
-    while (current);
+    while (current)
     {
         temp = current->next;
         current->nbr = 0;

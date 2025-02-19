@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:21:10 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/18 15:19:43 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 14:54:21 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void cost_analysis_a(t_stack_node *a, t_stack_node *b)
 void    set_cheapest(t_stack_node *stack)
 {
     long            cheapest_value;
-    t_stack_node    *cheapest_value;
+    t_stack_node    *cheapest_node;
     
     if (!stack)
         return ;
@@ -100,7 +100,7 @@ void    set_cheapest(t_stack_node *stack)
     cheapest_node->cheapest = true;
 }
 
-void    initialize_nodes_a(t_stack_node **a, t_stack_node **b)
+void    initialize_nodes_a(t_stack_node *a, t_stack_node *b)
 {
     current_index(a);
     current_index(b);

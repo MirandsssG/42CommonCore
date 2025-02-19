@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:13:50 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/18 15:30:42 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 14:55:21 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void    current_index(t_stack_node *stack);
     
 void    set_cheapest(t_stack_node *stack);
 
-void    initialize_nodes_a(t_stack_node **a, t_stack_node **b);
+void    initialize_nodes_a(t_stack_node *a, t_stack_node *b);
 
 
 //Initialize Nodes B

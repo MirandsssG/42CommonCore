@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:34 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/13 13:31:08 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/19 14:57:44 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int main(int ac, char **av)
         else
             sort_stacks(&a, &b);
     }
-    free_stacks(&a);
+    free_stack(&a);
     return (0);
 }
