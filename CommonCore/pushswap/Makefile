@@ -38,3 +38,4 @@ comp: all
 	@./a.out
 
 .PHONY: all clean fclean re comp
+
