@@ -2,11 +2,12 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iincludes/
 AR = ar rc
 NAME = pushswap
-MAIN = main.c
+MAIN = pushswap.c
 OPERATION_DIR = operations/push.c \
 					operations/rev_rotate.c \
 					operations/rotate.c \
-					operations/swap.c
+					operations/swap.c \
+					push_swap.c
 HELPERS_DIR = helpers/errors.c \
 					helpers/helpers.c \
 					helpers/initialize_nodes_a.c \
@@ -14,7 +15,8 @@ HELPERS_DIR = helpers/errors.c \
 					helpers/initialize_stack_a.c \
 					helpers/sort_stacks.c \
 					helpers/sort_three.c \
-					helpers/stack_sorted.c
+					helpers/stack_sorted.c \
+					helpers/split.c
 SRCS = $(OPERATION_DIR) $(HELPERS_DIR)
 OBJ = $(SRCS:.c=.o)
 LIBFTPRINTF = includes/libftprintf/libftprintf.a

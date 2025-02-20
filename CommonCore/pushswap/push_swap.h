@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:13:50 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/19 14:55:21 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/20 17:26:56 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_stack_node	*find_max(t_stack_node *stack);
 int stack_len(t_stack_node *stack);
 
 bool	stack_sorted(t_stack_node *stack);
+
+char    **split(char *s, char c);
 
 
 //Initialize Nodes A
