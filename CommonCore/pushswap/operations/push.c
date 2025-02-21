@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:53:39 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/02/18 13:22:06 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/02/21 15:15:54 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void push(t_stack_node **dest, t_stack_node **src)
         return ;
     push_node = *src;
     *src = (*src)->next;
-    if (src)
+    if (*src)
         (*src)->prev = NULL;
     push_node->prev = NULL;
-    if (!dest)
+    if (!*dest)
     {
         *dest = push_node;
         push_node->next = NULL;
