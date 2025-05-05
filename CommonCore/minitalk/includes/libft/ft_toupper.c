@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/05 10:47:11 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/27 03:15:11 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/07 17:04:14 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft/libft.h"
-#include "includes/libftprintf/ft_printf.h"
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-int main (int ac, char **av)
+int	ft_toupper(int c)
 {
-    if (ac == 3)
-    {
-        
-    }
-    (void)av;
-    (void)ac;
-    return (0);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

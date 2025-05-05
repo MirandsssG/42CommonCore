@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/05 10:47:11 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/27 03:15:34 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/07 17:47:50 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft/libft.h"
-#include "includes/libftprintf/ft_printf.h"
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-int main (int ac, char **av)
+char	*ft_strrchr(const char *s, int c)
 {
-    if (ac == 3)
-    {
-        
-    }
-    (void)av;
-    (void)ac;
-    return (0);
+	int		i;
+	char	*str_s;
+
+	i = 0;
+	str_s = (char *)s;
+	while (str_s[i] != '\0')
+		i++;
+	if (c == '\0')
+		return (&str_s[i]);
+	while (i >= 0)
+	{
+		if (str_s[i] == (char)c)
+			return (&str_s[i]);
+		i--;
+	}
+	return (NULL);
 }
