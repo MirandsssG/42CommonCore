@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/07 15:17:09 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/07 15:45:23 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 #define END_TRANSMISSION '\0'
 
-void    send_signal(int pid, unsigned char character)
+void    send_signal(int pid, const char character)
 {
     int                 i;
-    unsigned char       temp_char;
+    char       temp_char;
 
     i = 8;
     temp_char = character;
@@ -35,7 +35,7 @@ void    send_signal(int pid, unsigned char character)
             kill(pid, SIGUSR2);
         else
             kill(pid, SIGUSR1);
-        usleep(4000);        
+        usleep(1000);        
     }
 }
 
