@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/07 15:45:23 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/07 15:47:11 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ int main(int ac, char **av)
         exit(0);
     }
     server_pid = ft_atoi(av[1]);
+    if (server_pid < 0)
+    {
+        ft_printf("Invalid pid\n");
+        exit(0);
+    }
     message = av[2];
     i = 0;
     while (message[i])
