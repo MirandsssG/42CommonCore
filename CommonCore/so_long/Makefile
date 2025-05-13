@@ -1,14 +1,18 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes/
+CFLAGS = -Wall -Wextra -Werror
 AR = ar rc
-NAME = pushswap
+NAME = so_long
+LIB = so_long.a
 SRCS = 
 OBJ = $(SRCS:.c=.o)
 LIBFTPRINTF = includes/libftprintf/libftprintf.a
 LIBFT = includes/libft/libft.a
 
 
-all: $(NAME)
+all: $(LIB)
+
+$(LIB) > $(OBJ)
+	$(AR) $(LIB) $(OBJ)
 
 $(NAME): $(OBJ) $(LIBFTPRINTF) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFTPRINTF) $(LIBFT) -o $(NAME)

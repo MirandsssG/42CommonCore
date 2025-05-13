@@ -1,14 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/13 20:17:25 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/27 03:14:19 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/07 14:11:49 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
