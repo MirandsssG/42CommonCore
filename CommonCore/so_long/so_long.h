@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/14 19:06:53 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/14 22:11:52 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,11 @@ int check_char(char **map);
 int top_or_bottom_row(char *row);
 int is_surrounded(char **map, t_data data);
 
-//
+// Floodfill
+void    floodfill(char **map, int x, int y);
+char    **copy_map(char **map, int rows);
+void    find_player(t_data *data, int *px, int *py);
+int is_reachable(char **map);
+int is_path_valid(t_data *data);
+
 #endif

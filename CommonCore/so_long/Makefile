@@ -1,38 +1,45 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rc
 NAME = so_long
 LIB = so_long.a
-SRCS = 
+SRC_DIRS = floodfill parsing
+SRCS = main.c \
+	$(addprefix floodfill/, floodfill.c copy_map.c find_player.c is_reachable.c path_valid.c) \
+	$(addprefix parsing/, parsing1.c parsing2.c)
+OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
-LIBFTPRINTF = includes/libftprintf/libftprintf.a
-LIBFT = includes/libft/libft.a
+OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
+LIBFT_DIR = includes/libft
+LIBFTPRINTF_DIR = includes/libftprintf
+MLIBX_DIR = includes/minilibx-linux
+LIBFT = $(LIBFT_DIR)/libft.a
+LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
+MLIBX = $(MLIBX_DIR)/libmlx_linux.a
 
+all: $(LIBFT) $(NAME)
 
-all: $(LIB)
+$(NAME): $(OBJ)
+	@make -C $(LIBFT_DIR)
+	@make -C $(LIBFTPRINTF_DIR)
+	@make -C $(MLIBX_DIR)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(LIBFTPRINTF) $(MLIBX) -Lmlx -lXext -lX11
 
-$(LIB) > $(OBJ)
-	$(AR) $(LIB) $(OBJ)
-
-$(NAME): $(OBJ) $(LIBFTPRINTF) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFTPRINTF) $(LIBFT) -o $(NAME)
-
-$(LIBFTPRINTF):
-	make -C includes/libftprintf/ -f makefile
-
-$(LIBFT):
-	make -C includes/libft/ -f makefile
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
+	rm -rf $(OBJ_DIR)
+	@make clean -C ./$(LIBFT_DIR)
+	@make clean -C ./$(LIBFTPRINTF_DIR)
+	@make clean -C ./$(MLIBX_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
+	@make fclean -C ./$(LIBFT_DIR)
+	@make fclean -C ./$(LIBFTPRINTF_DIR)
 
 re: fclean all
 
-comp: all
-	$(CC) $(CFLAGS) $(MAIN) $(NAME)
-	@./a.out
-
-.PHONY: all clean fclean re comp
+.PHONY: all clean fclean re

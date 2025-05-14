@@ -1,0 +1,1 @@
+cc main.c includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c parsing/parsing1.c parsing/parsing2.c floodfill/copy_map.c floodfill/find_player.c floodfill/floodfill.c floodfill/is_reachable.c floodfill/path_valid.c 
