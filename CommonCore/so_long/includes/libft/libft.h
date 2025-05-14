@@ -6,14 +6,14 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:38:38 by dluis-ma          #+#    #+#             */
-/*   Updated: 2024/11/13 17:56:32 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/14 16:04:50 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <bsd/string.h>
+// # include <bsd/string.h>
 # include <ctype.h>
 # include <stdio.h>
 # include <stdlib.h>

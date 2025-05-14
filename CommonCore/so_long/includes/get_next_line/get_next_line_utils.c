@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:41:53 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/01/19 18:32:22 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/14 19:01:43 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str, int new_line)
+size_t	ft_strlen_gnl(char *str, int new_line)
 {
 	size_t	i;
 
@@ -32,15 +32,15 @@ size_t	ft_strlen(char *str, int new_line)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		len1;
 	int		len2;
 	int		i;
 	char	*result;
 
-	len1 = ft_strlen(s1, 0);
-	len2 = ft_strlen(s2, 1);
+	len1 = ft_strlen_gnl(s1, 0);
+	len2 = ft_strlen_gnl(s2, 1);
 	result = malloc(len1 + len2 + 1);
 	if (!result)
 		return (free(s1), NULL);
@@ -57,4 +57,18 @@ char	*ft_strjoin(char *s1, char *s2)
 		s2[i] = s2[len2 + i];
 	s2[i] = '\0';
 	return (result);
+}
+
+char *ft_strchr(const char *s, int c)
+{
+    while (*s)
+    {
+        if (*s == (char)c)
+            return (char *)s;
+        s++;
+    }
+	if (c == '\0')
+        return (char *)s;
+    
+    return NULL;
 }
