@@ -6,11 +6,27 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 23:42:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/14 00:01:02 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/14 01:30:29 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int line_count(const char *filename)
+{
+    int count = 0;
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0)
+        return (-1);
+    char *line;
+    while ((line = get_next_line(fd)))
+    {
+        count++;
+        free(line);
+    }
+    close(fd);
+    return (count);
+}
 
 int main (int ac, char **av)
 {
@@ -39,12 +55,12 @@ int main (int ac, char **av)
         free(data.mapa);
         return (1);
     }
-    int i;
-    
-    i = 0;
+    int i = 0;
     char *line;
     while ((line = get_next_line(fd)));
         data.mapa[i++] = line;
     data.mapa[i] = NULL;
     close(fd);
+    
+    return 0;
 }
