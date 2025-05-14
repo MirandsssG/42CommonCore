@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/14 19:55:53 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/14 20:08:45 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ int parse_map(char **map, const char *filename, t_data data)
     if (!is_surrounded(map, data))
     {
         printf("is_surrounded\n");
+        return (0);
+    }
+    if (!is_path_valid(&data))
+    {
+        printf("floodfill\n");
         return (0);
     }
     return (1);
