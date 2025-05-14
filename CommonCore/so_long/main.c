@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 23:42:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/14 19:03:44 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/14 19:34:00 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int main (int ac, char **av)
     }
     data.map[i] = NULL;
     close(fd);
+    data.columns = str_len_no_nl(data.map[0]);
     print_map(data.map);
     if (!parse_map(data.map, av[1], data))
     {
