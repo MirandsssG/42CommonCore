@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/16 00:15:27 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/16 00:33:06 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ typedef struct s_data
     void *img_player;
     void *img_exit;
     void *img_collectible;
-    int moves;
+    int player_x;
+    int player_y;
+    int steps;
+    int collectible_count;
 }   t_data;
 
 int ft_exit(t_data *data);
@@ -73,7 +76,7 @@ int is_path_valid(t_data *data);
 int initialize_mlx(t_data *data);
 int    draw_map(t_data *data);
 int load_images(t_data *data);
-int key_handler(t_data *data);
+int key_handler(int key_pressed, t_data *data);
 void    free_map(t_data *data);
 
 // MOVE
