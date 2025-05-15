@@ -8,7 +8,7 @@ SRCS = main.c \
 	$(addprefix floodfill/, floodfill.c copy_map.c find_player.c is_reachable.c path_valid.c) \
 	$(addprefix parsing/, parsing1.c parsing2.c) \
 	$(addprefix initialize/, initialize.c) \
-	$(addprefix mlx/, initialize_mlx.c)
+	$(addprefix mlx/, initialize_mlx.c load_images.c draw_map.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
