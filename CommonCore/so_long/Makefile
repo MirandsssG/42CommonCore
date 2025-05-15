@@ -4,6 +4,7 @@ NAME = so_long
 LIB = so_long.a
 SRC_DIRS = floodfill parsing
 SRCS = main.c \
+	includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c \
 	$(addprefix floodfill/, floodfill.c copy_map.c find_player.c is_reachable.c path_valid.c) \
 	$(addprefix parsing/, parsing1.c parsing2.c) \
 	$(addprefix initialize/, initialize.c)
@@ -15,14 +16,14 @@ LIBFTPRINTF_DIR = includes/libftprintf
 MLIBX_DIR = includes/minilibx-linux
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
-MLIBX = $(MLIBX_DIR)/libmlx_linux.a
+MLIBX = $(MLIBX_DIR)/libmlx.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
 	@make -C $(LIBFTPRINTF_DIR)
-	@make -C $(MLIBX_DIR)
+	@cd $(MLIBX_DIR) && ./configure && $(MAKE)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(LIBFTPRINTF) $(MLIBX) -Lmlx -lXext -lX11
 
 $(OBJ_DIR)/%.o: %.c

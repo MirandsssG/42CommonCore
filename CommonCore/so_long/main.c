@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 23:42:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/15 02:51:44 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/15 17:27:09 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ int main (int ac, char **av)
     }
     if (!initialize_vars(av[1]))
         return (0);
+    
 }
