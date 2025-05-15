@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/14 22:11:52 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/15 02:45:12 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ typedef struct s_data
     char **map;
 }   t_data;
 
-// Main
+// Initialize
 void    print_map(char **map);
 int line_count(const char *filename);
-char *trim_newline(char *line);
+int    initialize_vars(char *map);
 
 // Parsing
 size_t  str_len_no_nl(const char *s);

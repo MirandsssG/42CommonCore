@@ -5,7 +5,8 @@ LIB = so_long.a
 SRC_DIRS = floodfill parsing
 SRCS = main.c \
 	$(addprefix floodfill/, floodfill.c copy_map.c find_player.c is_reachable.c path_valid.c) \
-	$(addprefix parsing/, parsing1.c parsing2.c)
+	$(addprefix parsing/, parsing1.c parsing2.c) \
+	$(addprefix initialize/, initialize.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -16,7 +17,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBFTPRINTF = $(LIBFTPRINTF_DIR)/libftprintf.a
 MLIBX = $(MLIBX_DIR)/libmlx_linux.a
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
@@ -39,6 +40,7 @@ fclean: clean
 	rm -rf $(NAME)
 	@make fclean -C ./$(LIBFT_DIR)
 	@make fclean -C ./$(LIBFTPRINTF_DIR)
+	@make fclean -C ./$(MLIBX_DIR)
 
 re: fclean all
 
