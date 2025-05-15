@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 23:42:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/15 19:10:55 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/15 22:54:33 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main (int ac, char **av)
         return (1);
     }
     t_data data;
-    if (initialize_vars(av[1]))
-        return (0);
+    if (initialize_vars(av[1], &data))
+        return (1);
     if (!initialize_mlx(&data))
-        return(0);
+        return(1);
     return (0);
 }

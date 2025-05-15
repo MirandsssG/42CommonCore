@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/15 18:44:30 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/15 22:57:36 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@ typedef struct s_data
     char **map;
     void *mlx_ptr;
     void *win_ptr;
+    void *img_wall;
+    void *img_floor;
+    void *img_player;
+    void *img_exit;
+    void *img_collectible;
 }   t_data;
 
 // Initialize
 void    print_map(char **map);
 int line_count(const char *filename);
-int    initialize_vars(char *map);
+int initialize_vars(char *map, t_data *data);
 
 // Parsing
 size_t  str_len_no_nl(const char *s);
@@ -53,5 +58,7 @@ int is_path_valid(t_data *data);
 
 // MLX
 int initialize_mlx(t_data *data);
+int    draw_map(t_data *data);
+int load_images(t_data *data);
 
 #endif
