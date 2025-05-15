@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/15 17:26:17 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/15 18:44:30 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_data
     int columns;
     int rows;
     char **map;
+    void *mlx_ptr;
+    void *win_ptr;
 }   t_data;
 
 // Initialize
@@ -48,5 +50,8 @@ char    **copy_map(char **map, int rows);
 void    find_player(t_data *data, int *px, int *py);
 int is_reachable(char **map);
 int is_path_valid(t_data *data);
+
+// MLX
+int initialize_mlx(t_data *data);
 
 #endif

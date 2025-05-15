@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = so_long
 LIB = so_long.a
 SRC_DIRS = floodfill parsing
@@ -7,7 +7,8 @@ SRCS = main.c \
 	includes/get_next_line/get_next_line.c includes/get_next_line/get_next_line_utils.c \
 	$(addprefix floodfill/, floodfill.c copy_map.c find_player.c is_reachable.c path_valid.c) \
 	$(addprefix parsing/, parsing1.c parsing2.c) \
-	$(addprefix initialize/, initialize.c)
+	$(addprefix initialize/, initialize.c) \
+	$(addprefix mlx/, initialize_mlx.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -24,7 +25,7 @@ $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
 	@make -C $(LIBFTPRINTF_DIR)
 	@cd $(MLIBX_DIR) && ./configure && $(MAKE)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(LIBFTPRINTF) $(MLIBX) -Lmlx -lXext -lX11
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(LIBFTPRINTF) $(MLIBX) -lXext -lX11 -lm
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
