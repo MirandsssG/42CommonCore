@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 02:35:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/15 22:36:42 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/17 22:12:50 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int initialize_vars(char *map, t_data *data)
     data->map[i] = NULL;
     close(fd);
     data->columns = str_len_no_nl(data->map[0]);
-    print_map(data->map);
+    // print_map(data->map);
     if (!parse_map(data->map, map, *data))
     {
         printf("Invalid map\n");
         return 1;
     }
-    printf("\n\nValid map\n");
+    // printf("\n\nValid map\n");
     return 0;
 }
 
