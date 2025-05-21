@@ -18,10 +18,10 @@ $(SERVER_NAME): $(SERVER_SRCS) $(LIBFTPRINTF) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(SERVER_NAME) $(SERVER_SRCS) $(LIBFTPRINTF) $(LIBFT)
 
 $(LIBFTPRINTF):
-	$(MAKE) -C $(LIBFTPRINTF_DIR) -f makefile
+	$(MAKE) -C $(LIBFTPRINTF_DIR) -f Makefile
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR) -f makefile
+	$(MAKE) -C $(LIBFT_DIR) -f Makefile
 
 clean:
 	$(MAKE) -C $(LIBFTPRINTF_DIR) clean
