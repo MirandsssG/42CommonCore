@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 23:48:17 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/17 22:18:16 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/22 10:46:48 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int ft_exit(t_data *data)
         mlx_destroy_image(data->mlx_ptr, data->img_player);
     if(data->img_wall)
         mlx_destroy_image(data->mlx_ptr, data->img_wall);
-    if(data->mlx_ptr)
-        mlx_destroy_display(data->mlx_ptr);
     if(data->win_ptr)
         mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    if(data->mlx_ptr)
+        mlx_destroy_display(data->mlx_ptr);
     if(data->mlx_ptr)
         mlx_loop_end(data->mlx_ptr);
     free(data->mlx_ptr);
