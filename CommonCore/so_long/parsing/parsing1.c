@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 11:26:32 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:04:58 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,11 @@ int	parse_map2(char **map, t_data data)
 	if (!is_rectangular(map, data))
 	{
 		ft_printf("is_rectangular\n");
+		return (0);
+	}
+	if (!is_bigger_than_window(data))
+	{
+		ft_printf("Map is bigger than window\n");
 		return (0);
 	}
 	return (1);

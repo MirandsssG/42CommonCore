@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:26 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 11:17:27 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:05:03 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_data
 	int		player_y;
 	int		steps;
 	int		collectible_count;
+	char	next_pos;
+	char	curr_pos;
 }	t_data;
 
 int		ft_exit(t_data *data);
@@ -68,6 +70,7 @@ int		top_or_bottom_row(char *row);
 int		is_surrounded(char **map, t_data data);
 void	count_map_elements(char **map, int *p, int *e, int *c);
 int		ft_strcmp(const char *s1, const char *s2);
+int		is_bigger_than_window(t_data data);
 
 // Floodfill
 void	floodfill(char **map, int x, int y);
@@ -85,12 +88,10 @@ void	free_map(t_data *data);
 
 // MOVE
 void	move_up(t_data *data);
-void	attempt_move_up(t_data *data, int new_x, int new_y);
 void	move_left(t_data *data);
-void	attempt_move_left(t_data *data, int new_x, int new_y);
 void	move_right(t_data *data);
-void	attempt_move_right(t_data *data, int new_x, int new_y);
 void	move_down(t_data *data);
-void	attempt_move_down(t_data *data, int new_x, int new_y);
+void	attempt_move(t_data *data, int new_x, int new_y);
+void	move(t_data *data, int new_x, int new_y);
 
 #endif

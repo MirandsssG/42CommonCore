@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:07:24 by dluis-ma          #+#    #+#             */
-/*   Updated: 2025/05/23 11:19:31 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 21:05:59 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,11 @@ int	ft_strcmp(const char *s1, const char *s2)
 		s2++;
 	}
 	return (*(const unsigned char *)s1 - *(const unsigned char *)s2);
+}
+
+int	is_bigger_than_window(t_data data)
+{
+	if (data.columns > 30 || data.rows > 17)
+		return (0);
+	return (1);
 }

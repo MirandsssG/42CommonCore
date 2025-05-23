@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_mlx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:35:38 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 11:24:38 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:54:54 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	initialize_mlx(t_data *data)
 	}
 	draw_map(data);
 	data->steps = 0;
+	data->curr_pos = '0';
+	data->next_pos = '0';
 	mlx_key_hook(data->win_ptr, key_handler, data);
 	mlx_hook(data->win_ptr, 17, 0, ft_exit, data);
 	mlx_loop(data->mlx_ptr);

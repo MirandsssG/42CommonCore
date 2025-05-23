@@ -9,7 +9,7 @@ SRCS = main.c exit.c \
 	$(addprefix parsing/, parsing1.c parsing2.c parsing3.c) \
 	$(addprefix initialize/, initialize.c) \
 	$(addprefix mlx/, initialize_mlx.c load_images.c draw_map.c free_map.c key_handler.c) \
-	$(addprefix move/, move_up.c move_left.c move_right.c move_down.c)
+	$(addprefix move/, move_up.c move_left.c move_right.c move_down.c move.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
