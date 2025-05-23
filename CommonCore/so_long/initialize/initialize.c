@@ -6,74 +6,93 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 02:35:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/22 10:45:34 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:24:04 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void    print_map(char **map)
+void	print_map(char **map)
 {
-    int i = 0;
-    while (map && map[i])
-    {
-        printf("%s", map[i]);
-        i++;
-    }
+	int	i;
+
+	i = 0;
+	while (map && map[i])
+	{
+		ft_printf("%s", map[i]);
+		i++;
+	}
 }
 
-int line_count(const char *filename)
+int	line_count(const char *filename)
 {
-    int count = 0;
-    int fd = open(filename, O_RDONLY);
-    if (fd < 0)
-        return (-1);
-    char *line;
-    while ((line = get_next_line(fd)))
-    {
-        count++;
-        free(line);
-    }
-    close(fd);
-    return (count);
+	char	*line;
+	int		count;
+	int		fd;
+
+	fd = open(filename, O_RDONLY);
+	count = 0;
+	if (fd < 0)
+		return (-1);
+	line = get_next_line(fd);
+	while (line)
+	{
+		count++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (count);
 }
 
-int initialize_vars(char *map, t_data *data)
+int	read_map_into_data(char *map, t_data *data)
 {
-    data->rows = line_count(map);
-    if (data->rows <= 0)
-    {
-        printf("Failed to read lines or empty file\n");
-        return 1;
-    }
-    data->map = malloc(sizeof(char *) * (data->rows + 1));
-    if (!data->map)
-    {
-        perror("malloc");
-        return 1;
-    }
-    int fd = open(map, O_RDONLY);
-    if (fd < 0)
-    {
-        perror("open");
-        free(data->map);
-        return 1;
-    }
-    int i = 0;
-    char *line;
-    while ((line = get_next_line(fd)))
-    {
-        data->map[i++] = line;
-    }
-    data->map[i] = NULL;
-    close(fd);
-    data->columns = str_len_no_nl(data->map[0]);
-    // print_map(data->map);
-    if (!parse_map(data->map, map, *data))
-    {
-        printf("Invalid map\n");
-        return 1;
-    }
-    // printf("\n\nValid map\n");
-    return 0;
+	int		fd;
+	int		i;
+	char	*line;
+
+	fd = open(map, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("open");
+		return (1);
+	}
+	i = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		data->map[i++] = line;
+		line = get_next_line(fd);
+	}
+	data->map[i] = NULL;
+	close(fd);
+	return (0);
+}
+
+int	initialize_vars(char *map, t_data *data)
+{
+	data->rows = line_count(map);
+	if (data->rows <= 0)
+	{
+		ft_printf("Failed to read lines or empty file\n");
+		return (1);
+	}
+	data->map = malloc(sizeof(char *) * (data->rows + 1));
+	if (!data->map)
+	{
+		perror("malloc");
+		return (1);
+	}
+	if (read_map_into_data(map, data))
+	{
+		free(data->map);
+		return (1);
+	}
+	data->columns = str_len_no_nl(data->map[0]);
+	if (!parse_map1(data->map, map, *data))
+	{
+		ft_printf("Invalid map\n");
+		return (1);
+	}
+	return (0);
 }

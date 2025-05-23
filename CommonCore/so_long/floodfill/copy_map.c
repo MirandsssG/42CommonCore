@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 19:51:38 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/22 12:08:54 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:22:49 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**copy_map(char **map, int rows)
 		return (NULL);
 	while (i < rows)
 	{
-		copy[i] = strdup(map[i]);
+		copy[i] = ft_strdup(map[i]);
 		i++;
 	}
 	copy[rows] = NULL;
