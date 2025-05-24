@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 21:04:58 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/24 10:05:32 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_rectangular(char **map, t_data data)
 	return (1);
 }
 
-int	parse_map1(char **map, const char *filename, t_data data)
+int		parse_map1(char **map, const char *filename, t_data data)
 {
 	if (!validate_char(map))
 	{

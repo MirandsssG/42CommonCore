@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:07:24 by dluis-ma          #+#    #+#             */
-/*   Updated: 2025/05/23 21:05:59 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/24 09:29:22 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 int	is_bigger_than_window(t_data data)
 {
-	if (data.columns > 30 || data.rows > 17)
+	if (data.columns > 30 || data.rows > 16)
 		return (0);
 	return (1);
 }
