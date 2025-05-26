@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/26 10:52:26 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:13:53 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,46 +63,25 @@ int	is_rectangular(char **map, t_data data)
 int		parse_map1(char **map, const char *filename, t_data data)
 {
 	if (!validate_char(map))
-	{
-		ft_printf("validate_char\n");
 		return (0);
-	}
 	if (!ber_extension(filename))
-	{
-		ft_printf("ber_extension\n");
 		return (0);
-	}
 	if (!check_char(map))
-	{
-		ft_printf("check_char\n");
 		return (0);
-	}
 	if (!parse_map2(map, data))
 		return (0);
 	if (!is_path_valid(&data))
-	{
-		ft_printf("floodfill\n");
 		return (0);
-	}
 	return (1);
 }
 
 int	parse_map2(char **map, t_data data)
 {
 	if (!is_surrounded(map, data))
-	{
-		ft_printf("is_surrounded\n");
 		return (0);
-	}
 	if (!is_rectangular(map, data))
-	{
-		ft_printf("is_rectangular\n");
 		return (0);
-	}
 	if (!is_bigger_than_window(data))
-	{
-		ft_printf("Map is bigger than window\n");
 		return (0);
-	}
 	return (1);
 }

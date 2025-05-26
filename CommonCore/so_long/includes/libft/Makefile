@@ -14,7 +14,7 @@ BONUS_OBJS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJS)
@@ -28,7 +28,7 @@ re: fclean all
 bonus: .bonus
 
 .bonus: $(BONUS_OBJS) $(OBJ)
-	$(AR) $(NAME) $(BONUS_OBJS) $(OBJ)
+	@$(AR) $(NAME) $(BONUS_OBJS) $(OBJ)
 	@touch .bonus
 
 comp: all
