@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 02:35:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 11:24:04 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/26 10:47:17 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	initialize_vars(char *map, t_data *data)
 	if (!parse_map1(data->map, map, *data))
 	{
 		ft_printf("Invalid map\n");
+		free_map(data);
 		return (1);
 	}
 	return (0);

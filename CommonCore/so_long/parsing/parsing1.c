@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/24 10:05:32 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/26 10:52:26 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,13 @@ int		parse_map1(char **map, const char *filename, t_data data)
 		ft_printf("check_char\n");
 		return (0);
 	}
+	if (!parse_map2(map, data))
+		return (0);
 	if (!is_path_valid(&data))
 	{
 		ft_printf("floodfill\n");
 		return (0);
 	}
-	if (!parse_map2(map, data))
-		return (0);
 	return (1);
 }
 

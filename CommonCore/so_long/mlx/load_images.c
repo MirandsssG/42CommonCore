@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:54:47 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 10:39:56 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/26 11:08:33 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	load_images(t_data *data)
 	if (!data->img_wall || !data->img_floor || !data->img_player
 		|| !data->img_exit || !data->img_collectible)
 	{
-		ft_printf("Failed to load textures");
+		ft_printf("Failed to load textures\n");
+		ft_exit(data);
 		return (0);
 	}
 	return (1);
