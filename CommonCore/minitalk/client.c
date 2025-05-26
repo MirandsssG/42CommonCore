@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 12:20:34 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/26 11:26:14 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	send_signal(int pid, const char character)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(1000);
+		usleep(2000);
 	}
 }
 
