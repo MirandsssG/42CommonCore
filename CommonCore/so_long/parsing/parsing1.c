@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/27 11:42:50 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:53:36 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ int	parse_map1(char **map, const char *filename, t_data data)
 
 int	parse_map2(char **map, t_data data)
 {
-	if (!is_surrounded(map, data))
-		return (0);
 	if (!is_rectangular(map, data))
+		return (0);
+	if (!is_surrounded(map, data))
 		return (0);
 	if (!is_bigger_than_window(data))
 		return (0);
