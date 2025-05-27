@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:08:31 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/26 16:13:53 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:42:50 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	is_rectangular(char **map, t_data data)
 	return (1);
 }
 
-int		parse_map1(char **map, const char *filename, t_data data)
+int	parse_map1(char **map, const char *filename, t_data data)
 {
 	if (!validate_char(map))
 		return (0);
