@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 22:54:47 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/26 11:08:33 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:00:13 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	load_images(t_data *data)
 	int	w;
 	int	h;
 
+	w = 64;
+	h = 64;
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr,
 			"textures/wall.xpm", &w, &h);
 	data->img_floor = mlx_xpm_file_to_image(data->mlx_ptr,
