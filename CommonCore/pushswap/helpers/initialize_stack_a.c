@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_stack_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:33:37 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/28 14:19:58 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:29:53 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ void	initialize_stack_a(t_stack_node **a, char **av, int ac)
 	while (av[i])
 	{
 		if (error_syntax(av[i]))
+		{
+			free_split(ac, av);
 			free_errors(a);
+		}
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 		{
@@ -75,7 +78,10 @@ void	initialize_stack_a(t_stack_node **a, char **av, int ac)
 			free_errors(a);
 		}
 		if (error_duplicate(*a, (int)n))
+		{
+			free_split(ac, av);
 			free_errors(a);
+		}
 		append_node(a, (int)n);
 		i++;
 	}
