@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:13:50 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/27 21:48:22 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/28 12:59:55 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int						stack_len(t_stack_node *stack);
 bool					stack_sorted(t_stack_node *stack);
 
 char					**split(char *s, char c);
+
+void					free_split(int ac, char **args);
 
 // Initialize Nodes A
 void					current_index(t_stack_node *stack);

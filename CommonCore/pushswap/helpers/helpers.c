@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:00:43 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 12:14:32 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 12:59:39 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,19 @@ int	stack_len(t_stack_node *stack)
 		i++;
 	}
 	return (i);
+}
+
+void	free_split(int ac, char **args)
+{
+	int	i;
+
+	if (!args || ac != 2)
+		return ;
+	i = 0;
+	while (args[i])
+	{
+		free (args[i]);
+		i++;
+	}
+	free (args);
 }

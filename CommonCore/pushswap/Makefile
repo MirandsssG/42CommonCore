@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes/
+CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
 AR = ar rc
 NAME = pushswap
 MAIN = pushswap.c

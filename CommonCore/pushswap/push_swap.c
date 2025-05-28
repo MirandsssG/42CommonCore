@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:18:34 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 12:09:21 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 12:58:43 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@ int	main(int ac, char **av)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	char			**args;
 
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	initialize_stack_a(&a, av + 1);
+	if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = av + 1;
+	initialize_stack_a(&a, args);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -34,5 +37,6 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);
+	free_split(ac, args);
 	return (0);
 }
