@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:13:50 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/28 12:59:55 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:18:41 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void					initialize_nodes_b(t_stack_node *a, t_stack_node *b);
 
 // Initialize Stack A
 
-void					initialize_stack_a(t_stack_node **a, char **av);
+void					initialize_stack_a(t_stack_node **a, char **av, int ac);
 
 t_stack_node			*get_cheapest(t_stack_node *stack);
 

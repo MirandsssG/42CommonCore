@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:19:08 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/28 13:05:15 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:15:04 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	// free_split
 	ft_printf("Error\n");
 	exit(1);
 }

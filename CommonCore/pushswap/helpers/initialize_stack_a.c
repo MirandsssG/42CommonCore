@@ -6,7 +6,7 @@
 /*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:33:37 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 12:14:40 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:19:58 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	initialize_stack_a(t_stack_node **a, char **av)
+void	initialize_stack_a(t_stack_node **a, char **av, int ac)
 {
 	long	n;
 	int		i;
@@ -70,7 +70,10 @@ void	initialize_stack_a(t_stack_node **a, char **av)
 			free_errors(a);
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
+		{
+			free_split(ac, av);
 			free_errors(a);
+		}
 		if (error_duplicate(*a, (int)n))
 			free_errors(a);
 		append_node(a, (int)n);
