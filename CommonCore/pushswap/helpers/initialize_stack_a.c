@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_stack_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:33:37 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/28 15:29:53 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/29 14:20:09 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	append_node(t_stack_node **stack, int n)
 
 	if (!stack)
 		return ;
-	node = malloc(sizeof(t_stack_node));
+	node = ft_calloc(sizeof(t_stack_node), 1);
 	if (!node)
 		return ;
 	node->next = NULL;
