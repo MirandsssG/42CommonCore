@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:25:08 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/29 16:20:18 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/05/30 12:36:09 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ static size_t	word_count(char const *s, char c)
 		s++;
 	}
 	return (count);
-}
-
-static void	free_words(char **words, size_t count)
 }
 
 static void	free_words(char **words, size_t count)
