@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
 AR = ar rc
-NAME = pushswap
+NAME = push_swap
 MAIN = pushswap.c
 OPERATION_DIR = operations/push.c \
 					operations/rev_rotate.c \
