@@ -3,98 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 18:08:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2024/11/26 20:30:42 by mirandsssg       ###   ########.fr       */
+/*   Created: 2025/01/08 13:41:53 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/01/19 18:32:22 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *read_file(int fd, char *res)
+size_t	ft_strlen(char *str, int new_line)
 {
-	char *buffer;
-	int	byte_read;
-	
-	if (!res)
-		res = ft_calloc(1, 1);
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	byte_read = 1;
-	while (byte_read > 0)
-	{
-		byte_read = read(fd, buffer, BUFFER_SIZE);
-		if (byte_read == -1)
-		{
-			free(buffer);
-			return (NULL);
-		}
-		buffer[byte_read] = 0;
-		res = ft_free(res, buffer);
-		if (ft_strchr(buffer, '\n'))
-			break;
-	}
-	free(buffer);
-	return (res);
-}
-
-char *ft_line(char *buffer)
-{
-	char *line;
-	int i = 0;
-
-	if (!buffer[i])
-		return (NULL);
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	line = ft_calloc(i + 2, sizeof(char));
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	if (buffer[i] && buffer[i] == '\n')
-		line[i++] = '\n';
-	return (line);
-}
-
-char *ft_next(char *buffer)
-{
-	int i = 0;
-	int j = 0;
-	char *line;
-
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	if (!buffer)
-	{
-		free(buffer);
-		return (NULL);
-	}
-	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
-	i++;
-	while (buffer[i])
-		line[j++] = buffer[i++];
-	free(buffer);
-	return (line);
-}
-
-char *ft_free(char *buffer, char *buf)
-{
-	char *temp;
-
-	temp = ft_strjoin(buffer, buf);
-	free(buffer);
-	return (temp);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
+	if (str == NULL)
+		return (0);
+	if (new_line)
+	{
+		while (str[i] != '\0' && str[i] != '\n')
+			i++;
+		if (str[i] == '\n')
+			i++;
+	}
+	else
+		while (str[i++] != '\0')
+			;
 	return (i);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		len1;
+	int		len2;
+	int		i;
+	char	*result;
+
+	len1 = ft_strlen(s1, 0);
+	len2 = ft_strlen(s2, 1);
+	result = malloc(len1 + len2 + 1);
+	if (!result)
+		return (free(s1), NULL);
+	result[len1 + len2] = '\0';
+	i = -1;
+	while (++i < len1)
+		result[i] = s1[i];
+	i = -1;
+	while (++i < len2)
+		result[len1 + i] = s2[i];
+	free(s1);
+	i = -1;
+	while (s2[len2 + ++i])
+		s2[i] = s2[len2 + i];
+	s2[i] = '\0';
+	return (result);
 }
