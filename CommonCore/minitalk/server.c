@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:47 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/23 12:20:35 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/06/02 21:41:39 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	sig_handler(int signal)
 	if (bit_index == 8)
 	{
 		if (current_char == END_TRANSMISSION)
-			ft_printf("\n");
+			write(1, "\n", 1);
 		else
-			ft_printf("%c", current_char);
+			write(1, &current_char, 1);
 		bit_index = 0;
 		current_char = 0;
 	}
