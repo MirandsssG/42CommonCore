@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/26 11:26:14 by dluis-ma         ###   ########.fr       */
+/*   Updated: 2025/06/05 15:43:17 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,46 +20,60 @@
 
 #define END_TRANSMISSION '\0'
 
-void	send_signal(int pid, const char character)
-{
-	int		i;
-	char	temp_char;
+volatile sig_atomic_t	ack_received = 0;
 
-	i = 8;
-	temp_char = character;
-	while (i > 0)
+void	handle_ack(int sig)
+{
+	(void)sig;
+	ack_received = 1;
+}
+
+void	send_char(int pid, char c)
+{
+	int	bit;
+
+	bit = 0;
+	while (bit < 8)
 	{
-		i--;
-		temp_char = character >> i;
-		if (temp_char % 2 == 0)
+		ack_received = 0;
+		if ((c >> bit) & 1)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(2000);
+		while (!ack_received)
+			usleep(50);
+		bit++;
 	}
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	pid_t		server_pid;
-	const char	*message;
-	int			i;
+	struct sigaction	sa;
+	int	server_pid;
+	char	*msg;
+	size_t	i;
 
-	if (ac != 3)
+	if (argc != 3)
 	{
-		ft_printf("Usage: %s <pid> <message>\n", av[0]);
-		exit(0);
+		write(2, "Usage: ./client <PID> <message>\n", 33);
+		return (1);
 	}
-	server_pid = ft_atoi(av[1]);
-	if (server_pid < 0)
-	{
-		ft_printf("Invalid pid\n");
-		exit(0);
-	}
-	message = av[2];
+
+	server_pid = ft_atoi(argv[1]);
+	msg = argv[2];
+
+	sa.sa_handler = &handle_ack;
+	sa.sa_flags = 0;
+	sigemptyset(&sa.sa_mask);
+	sigaction(SIGUSR1, &sa, NULL);
+
 	i = 0;
-	while (message[i])
-		send_signal(server_pid, message[i++]);
-	send_signal(server_pid, '\0');
+	while (1)
+	{
+		send_char(server_pid, msg[i]);
+		if (msg[i] == '\0')
+			break;
+		i++;
+	}
 	return (0);
 }
