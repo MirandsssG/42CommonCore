@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/05 15:43:17 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/08 21:01:35 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ int	main(int argc, char **argv)
 	}
 
 	server_pid = ft_atoi(argv[1]);
+	if (server_pid <= 0)
+	{
+		write (2, "Invalid PID\n", 12);
+		return (1);
+	}
 	msg = argv[2];
-
 	sa.sa_handler = &handle_ack;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
