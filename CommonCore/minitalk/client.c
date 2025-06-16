@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:35 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/08 21:01:35 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/16 15:22:23 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 #define END_TRANSMISSION '\0'
 
-volatile sig_atomic_t	ack_received = 0;
+volatile sig_atomic_t	g_ack_received = 0;
 
 void	handle_ack(int sig)
 {
 	(void)sig;
-	ack_received = 1;
+	g_ack_received = 1;
 }
 
 void	send_char(int pid, char c)
@@ -35,12 +35,21 @@ void	send_char(int pid, char c)
 	bit = 0;
 	while (bit < 8)
 	{
-		ack_received = 0;
+		g_ack_received = 0;
 		if ((c >> bit) & 1)
-			kill(pid, SIGUSR2);
-		else
-			kill(pid, SIGUSR1);
-		while (!ack_received)
+		{
+			if (kill(pid, SIGUSR2) == -1)
+			{
+				perror("Error sending SIGUSR2");
+				exit(1);
+			}
+		}
+		else if (kill(pid, SIGUSR1) == -1)
+		{
+			perror("Error sending SIGUSR1");
+			exit(1);
+		}
+		while (!g_ack_received)
 			usleep(50);
 		bit++;
 	}
@@ -49,35 +58,26 @@ void	send_char(int pid, char c)
 int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
-	int	server_pid;
-	char	*msg;
-	size_t	i;
+	int					server_pid;
+	char				*msg;
+	size_t				i;
 
 	if (argc != 3)
-	{
-		write(2, "Usage: ./client <PID> <message>\n", 33);
-		return (1);
-	}
-
+		return (write(2, "Usage: ./client <PID> <message>\n", 33), 1);
 	server_pid = ft_atoi(argv[1]);
 	if (server_pid <= 0)
-	{
-		write (2, "Invalid PID\n", 12);
-		return (1);
-	}
+		return (write(2, "Invalid PID\n", 12), 1);
 	msg = argv[2];
 	sa.sa_handler = &handle_ack;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
-
 	i = 0;
 	while (1)
 	{
 		send_char(server_pid, msg[i]);
-		if (msg[i] == '\0')
-			break;
-		i++;
+		if (!msg[i++])
+			break ;
 	}
 	return (0);
 }
