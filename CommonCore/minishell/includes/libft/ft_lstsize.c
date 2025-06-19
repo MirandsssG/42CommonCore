@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 12:53:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/19 12:42:06 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/11/08 07:51:34 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/13 17:56:46 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_lstsize(t_list *lst)
 {
-	t_data	data;
+	int	size;
 
-	ft_memset(&data, 0, sizeof(t_data));
-	return (0);
+	size = 0;
+	while (lst)
+	{
+		++size;
+		lst = lst->next;
+	}
+	return (size);
 }

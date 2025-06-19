@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:56:59 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/18 13:00:44 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/19 12:33:22 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <signal.h>
 # include <limits.h>
 # include <fcntl.h>
+# include "includes/libft/libft.h"
 
 typedef	struct s_data
 {

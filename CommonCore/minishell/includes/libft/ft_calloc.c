@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 12:53:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/19 12:42:06 by mirandsssg       ###   ########.fr       */
+/*   Created: 2024/10/30 01:53:59 by mirandsssg        #+#    #+#             */
+/*   Updated: 2024/11/07 14:11:50 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	t_data	data;
+	void	*pointer;
 
-	ft_memset(&data, 0, sizeof(t_data));
-	return (0);
+	pointer = (void *)malloc(nelem * elsize);
+	if (!pointer)
+		return (NULL);
+	ft_bzero(pointer, nelem * elsize);
+	return (pointer);
 }
