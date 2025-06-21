@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:53:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/19 12:42:06 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/21 16:31:12 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	(void)ac;
+	(void)av;
 	ft_memset(&data, 0, sizeof(t_data));
+	while (1)
+	{
+		data.input = readline("minishell$ ");
+		if (!data.input) break;
+		if (*data.input)
+			add_history(data.input);
+		free(data.input);
+	}
 	return (0);
 }
