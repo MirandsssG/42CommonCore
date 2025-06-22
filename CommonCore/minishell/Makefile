@@ -3,11 +3,11 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
 AR = ar rc
 NAME = minishell
 SRCS = main.c \
-		$(addprefix builtins/, cd_builtin.c echo_builtin.c env_builtin.c exit_builtin.c export_builtin.c pwd_builtin.c unset_builtin.c) \
+		$(addprefix builtins/, cd_builtin.c echo_builtin.c env_builtin.c exit_builtin.c export_builtin.c pwd_builtin.c unset_builtin.c execute_builtin.c) \
 		$(addprefix env/, ) \
-		$(addprefix execute/, ) \
-		$(addprefix parsing/, ) \
-		$(addprefix utils/, )
+		$(addprefix execute/, parse_and_exec.c) \
+		$(addprefix parsing/, tokenize.c expand_variables.c is_builtin.c) \
+		$(addprefix utils/, ft_strndup.c ft_strcmp.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))

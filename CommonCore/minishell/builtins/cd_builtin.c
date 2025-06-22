@@ -6,7 +6,14 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:18:50 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/21 16:18:51 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/22 14:13:43 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../minishell.h"
+
+int	cd_builtin(t_data *data)
+{
+	(void)data;
+	return (0);
+}

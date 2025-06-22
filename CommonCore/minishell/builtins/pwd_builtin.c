@@ -6,7 +6,14 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 16:19:06 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/21 16:19:07 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/22 14:14:00 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../minishell.h"
+
+int	pwd_builtin(t_data *data)
+{
+	(void)data;
+	return (0);
+}

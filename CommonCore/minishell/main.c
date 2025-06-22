@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:53:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/21 17:21:02 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/22 14:17:36 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ int	main(int ac, char **av)
 		data.input = readline("minishell$ ");
 		if (!data.input)
 		{
-			printf("\nexit\n");
+			printf("exit\n");
 			break;
 		}
 		if (*data.input)
 			add_history(data.input);
+		parse_and_exec(&data);
 		free(data.input);
 	}
 	return (0);
