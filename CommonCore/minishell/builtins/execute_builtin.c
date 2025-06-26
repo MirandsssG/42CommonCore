@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:22:14 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/06/22 14:19:57 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/06/22 14:53:28 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int	execute_builtin(t_data *data)
 		return (env_builtin(data));
 	if (ft_strcmp(data->tokens[0], "exit") == 0)
 		return (exit_builtin(data));
+	return (0);
 }
