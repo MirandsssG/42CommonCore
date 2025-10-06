@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/06 19:15:40 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/10/06 22:27:59 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-# include "includes/libft/libft.h"
-# include "includes/libftprintf/ft_printf.h"
-
 typedef	struct s_data
 {
 	int	number_of_philos;
@@ -36,5 +33,9 @@ typedef	struct s_data
 	int	time_to_eat;
 	int	time_to_sleep;
 }	t_data;
+
+// Helpers
+
+int		ft_atoi(const char *str);
 
 #endif

@@ -1,23 +1,17 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
 AR = ar rc
-NAME = philosophers
+NAME = philo
 SRCS = main.c \
-		# $(addprefix builtins/, )
+		$(addprefix helpers/, ft_atoi.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
-LIBFT_DIR = includes/libft
-LIBFT = includes/libft/libft.a
-PRINTF_DIR = includes/libftprintf
-PRINTF = includes/libftprintf/libftprintf.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(LIBFT_DIR)
-	@make -C $(PRINTF_DIR)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(PRINTF)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -25,13 +19,9 @@ $(OBJ_DIR)/%.o: %.c
 
 clean:
 	rm -rf $(OBJ_DIR)
-	@make clean -C ./$(LIBFT_DIR)
-	@make clean -C ./$(PRINTF_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
-	@make fclean -C ./$(LIBFT_DIR)
-	@make fclean -C ./$(PRINTF_DIR)
 
 re: fclean all
 
