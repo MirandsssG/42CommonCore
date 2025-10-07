@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:57:54 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 20:55:46 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/10/07 22:12:39 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int ac, char **av)
 		data.must_eat_count = ft_atoi(av[5]);
 	else
 		data.must_eat_count = -1;
-	printf("Number of philosophers = %d\nTime to die = %d\nTime to eat = %d\nTime to sleep = %d\nMust eat count = %d\n", data.number_of_philos, data.time_to_die, data.time_to_eat, data.time_to_sleep, data.must_eat_count);
 	if (init_data(&data))
 	{
 		cleanup_data(&data);

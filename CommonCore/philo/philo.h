@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 20:54:52 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/10/07 22:06:57 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,23 @@ void		cleanup_data(t_data *data);
 // Execute
 
 int			execute(t_data *data);
+
+void		*philo_routine(void *arg);
+
+int			start_philo(t_data *data);
+
+void		*monitor_routine(void *arg);
+
+// Actions
+
+void		print_status(t_philo *philo, char *status);
+
+void		take_forks(t_philo *philo);
+
+void		eat(t_philo *philo);
+
+void		put_forks(t_philo *philo);
+
+void		sleep_and_think(t_philo *philo);
 
 #endif

@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   monitor_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 20:51:42 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 21:49:39 by mirandsssg       ###   ########.fr       */
+/*   Created: 2025/10/07 21:43:15 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/10/07 21:46:17 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	execute(t_data *data)
+void	*monitor_routine(void *arg)
 {
-	int			i;
-	pthread_t	monitor_thread;
+	t_data	*data = (t_data *)arg;
+	int	i;
 
-	data->start_time = get_time_ms();
-	if (start_philo(data))
-		return (1);
-	if (pthread_create(&monitor_thread, NULL, monitor_routine, data) != 0)
-		return(printf("Error: failed to create monitor thread\n"), 1);
-	i = 0;
-	while (i < data->number_of_philos)
+	while (!data->dead)
 	{
-		pthread_join(data->philos[i].thread, NULL);
-		i++;
+		i = 0;
+		while (i < data->number_of_philos)
+		{
+			if (get_time_ms() - data->philos[i].last_meal_time > data->time_to_die)
+			{
+				print_status(&data->philos[i], "died");
+				data->dead = 1;
+				return (NULL);
+			}
+			i++;
+		}
+		usleep(1000);
 	}
-	pthread_join(monitor_thread, NULL);
-	return (0);
+	return (NULL);
 }

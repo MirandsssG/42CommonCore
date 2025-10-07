@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   put_forks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 20:51:42 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 21:49:39 by mirandsssg       ###   ########.fr       */
+/*   Created: 2025/10/07 21:31:06 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/10/07 22:06:36 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	execute(t_data *data)
+void	put_forks(t_philo *philo)
 {
-	int			i;
-	pthread_t	monitor_thread;
-
-	data->start_time = get_time_ms();
-	if (start_philo(data))
-		return (1);
-	if (pthread_create(&monitor_thread, NULL, monitor_routine, data) != 0)
-		return(printf("Error: failed to create monitor thread\n"), 1);
-	i = 0;
-	while (i < data->number_of_philos)
-	{
-		pthread_join(data->philos[i].thread, NULL);
-		i++;
-	}
-	pthread_join(monitor_thread, NULL);
-	return (0);
+	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(philo->right_fork);
 }

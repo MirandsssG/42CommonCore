@@ -6,7 +6,8 @@ SRCS = main.c \
 		$(addprefix helpers/, ft_atoi.c is_valid_arg.c) \
 		$(addprefix initialization/, init_data.c) \
 		$(addprefix cleanup/, cleanup_data.c) \
-		$(addprefix execute/, execute.c)
+		$(addprefix execute/, execute.c philo_routine.c start_philo.c monitor_routine.c) \
+		$(addprefix actions/, eat.c put_forks.c sleep_and_think.c take_forks.c print_status.c) 
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
