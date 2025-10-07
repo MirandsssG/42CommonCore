@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/06 22:27:59 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/10/06 23:51:39 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@
 
 typedef	struct s_data
 {
-	int	number_of_philos;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
+	int			number_of_philos;
+	int			time_to_die;
+	int			time_to_eat;
+	int			time_to_sleep;
+	int			must_eat_count;
+	int			dead;
+	long long	start_time;
 }	t_data;
 
 // Helpers
