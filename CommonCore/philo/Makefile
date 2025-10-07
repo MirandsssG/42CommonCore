@@ -3,7 +3,10 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
 AR = ar rc
 NAME = philo
 SRCS = main.c \
-		$(addprefix helpers/, ft_atoi.c)
+		$(addprefix helpers/, ft_atoi.c is_valid_arg.c) \
+		$(addprefix initialization/, init_data.c) \
+		$(addprefix cleanup/, cleanup_data.c) \
+		$(addprefix execute/, execute.c)
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
