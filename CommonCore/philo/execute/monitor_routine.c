@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:43:15 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 23:47:22 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/10/22 12:47:35 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ void	*monitor_routine(void *arg)
 				data->dead = 1;
 				return (NULL);
 			}
-			if (data->must_eat_count > 0 && data->philos[i].meals_eaten < data->must_eat_count)
-				all_full = 0;
+			if (data->must_eat_count > 0 && data->philos[i].meals_eaten >= data->must_eat_count)
+			{
+				data->dead = 1;
+				return (NULL);
+			}
 			i++;
-		}
-		if (data->must_eat_count > 0 && all_full)
-		{
-			data->dead = 1;
-			return (NULL);
 		}
 		usleep(1000);
 	}
