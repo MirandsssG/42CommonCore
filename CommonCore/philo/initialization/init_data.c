@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:03:22 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 20:50:38 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/11/10 14:17:12 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ int	init_data(t_data *data)
 		cleanup_data(data);
 		return (1);
 	}
+	if (pthread_mutex_init(&data->dead_mutex, NULL) != 0)
+	{
+		printf("Error: dead mutex init\n");
+		cleanup_data(data);
+		return (1);
+	}
 	data->philos = malloc(sizeof(t_philo) * data->number_of_philos);
 	if (!data->philos)
 	{
@@ -62,6 +68,12 @@ int	init_data(t_data *data)
 		data->philos[i].data = data;
 		data->philos[i].left_fork = &data->forks[i];
 		data->philos[i].right_fork = &data->forks[(i + 1) % data->number_of_philos];
+		if (pthread_mutex_init(&data->philos[i].meal_mutex, NULL) != 0)
+		{
+			printf("Error: meal mutex init\n");
+			cleanup_data(data);
+			return (1);
+		}
 		i++;
 	}
 	return (0);

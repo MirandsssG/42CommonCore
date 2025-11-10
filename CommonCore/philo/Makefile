@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes/ -g
+CFLAGS = -Wall -Wextra -Werror -pthread -Iincludes/ -g
 AR = ar rc
 NAME = philo
 SRCS = main.c \

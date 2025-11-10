@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 22:06:57 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/11/10 14:13:19 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef	struct s_philo
 	struct s_data	*data;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	meal_mutex;
 }	t_philo;
 
 typedef	struct s_data
@@ -46,6 +47,7 @@ typedef	struct s_data
 	long long		start_time;
 	pthread_mutex_t	lock_print;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	dead_mutex;
 	t_philo			*philos;
 }	t_data;
 
