@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 13:23:20 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/23 14:09:52 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/11/20 14:41:19 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int ac, char **av)
 	j = 0;
 	while (j < win_len)
 	{
-		write(1, &window[i], 1);
+		write(1, &window[j], 1);
 		j++;
 	}
 	return (0);
