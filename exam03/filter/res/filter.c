@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 13:23:20 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/11/20 14:41:19 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2025/11/24 00:05:17 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 				j = 0;
 				while (j < pat_len)
 				{
-					write (1, "*", 1);
+					write(1, "*", 1);
 					j++;
 				}
 				win_len = 0;
