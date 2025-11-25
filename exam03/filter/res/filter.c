@@ -1,29 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   filter.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 13:23:20 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/11/24 00:05:17 by mirandsssg       ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 #include <stdlib.h>
 
-#define BUF_SIZE 4096
+#define BUFFER_SIZE 1
 
-static int	ft_strlen(char *s)
+int		ft_strlen(char *s)
 {
 	int i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
 
-static int	ft_strncmp(char *s1, char *s2, int n)
+int		ft_strncmp(char *s1, char *s2, int n)
 {
 	int i = 0;
 	while (i < n && s1[i] && s2[i])
@@ -37,29 +27,41 @@ static int	ft_strncmp(char *s1, char *s2, int n)
 	return (0);
 }
 
-int	main(int ac, char **av)
+void	zero_window(char *s, int len)
 {
+	int i = 0;
+	while (i < len)
+	{
+		s[i] = 0;
+		i++;
+	}
+}
+
+int		main(int ac, char **av)
+{
+	if (ac != 2)
+		return (1);
 	char	*pattern = av[1];
 	int		pat_len = ft_strlen(pattern);
-	char	buf[BUF_SIZE];
-	char	window[BUF_SIZE];
+	char	buffer[BUFFER_SIZE];
+	char	*window = malloc(pat_len);
 	int		win_len = 0;
 	int		bytes;
 	int		i;
 	int		j;
-	
-	if (ac != 2)
-		return (1);
 
-	while ((bytes = read(0, buf, BUF_SIZE)) > 0)
+	if (!window)
+		return (1);
+	zero_window(window, pat_len);
+	while ((bytes = read(0, buffer, BUFFER_SIZE)) > 0)
 	{
 		i = 0;
 		while (i < bytes)
 		{
-			window[win_len++] = buf[i];
+			window[win_len++] = buffer[i];
 			if (win_len > pat_len)
 			{
-				write (1, &window[0], 1);
+				write(1, &window[0], 1);
 				j = 0;
 				while (j < win_len - 1)
 				{
@@ -73,10 +75,11 @@ int	main(int ac, char **av)
 				j = 0;
 				while (j < pat_len)
 				{
-					write(1, "*", 1);
+					write (1, "*", 1);
 					j++;
 				}
 				win_len = 0;
+				zero_window(window, pat_len);
 			}
 			i++;
 		}
@@ -87,5 +90,6 @@ int	main(int ac, char **av)
 		write(1, &window[j], 1);
 		j++;
 	}
+	free(window);
 	return (0);
 }
