@@ -1,25 +1,25 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-void	ft_swap(char *s1, char *s2)
+void	swap(char *s1, char *s2)
 {
-	char	temp = *s1;
+	char temp = *s1;
 	*s1 = *s2;
 	*s2 = temp;
 }
 
 void	ft_sort(char *s)
 {
-	int	i = 0;
-	int	j = 0;
+	int i = 0;
+	int j = 0;
 	while (s[i])
 	{
 		j = i + 1;
 		while (s[j])
 		{
 			if (s[i] > s[j])
-				ft_swap(s + j, s + i);
+				swap(s + j, s + i);
 			j++;
 		}
 		i++;
@@ -28,16 +28,16 @@ void	ft_sort(char *s)
 
 void	permutations(char *s, int pos)
 {
-	int	i = pos;
+	int i = pos;
 
 	if (!s[pos])
 		puts(s);
 	while (i < s[i])
 	{
 		ft_sort(s + pos);
-		ft_swap(s + i, s + pos);
+		swap(s + i, s + pos);
 		permutations(s, pos + 1);
-		ft_swap(s + i, s + pos);
+		swap(s + i, s + pos);
 		i++;
 	}
 }

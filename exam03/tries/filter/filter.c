@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define BUFFER_SIZE 3
+#define BUFFER_SIZE 1
 
 int		ft_strlen(char *s)
 {
@@ -16,7 +16,7 @@ int		ft_strlen(char *s)
 int		ft_strncmp(char *s1, char *s2, int n)
 {
 	int i = 0;
-	while (s1[i] && s2[i])
+	while (i < n && s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
@@ -27,10 +27,10 @@ int		ft_strncmp(char *s1, char *s2, int n)
 	return (0);
 }
 
-void	zero_window(char *s, int n)
+void	zero_window(char *s, int len)
 {
-	int	i = 0;
-	while (i < n)
+	int i = 0;
+	while (i < len)
 	{
 		s[i] = 0;
 		i++;
@@ -39,19 +39,17 @@ void	zero_window(char *s, int n)
 
 int		main(int ac, char **av)
 {
+	if (ac != 2)
+		return (1);
 	char	*pattern = av[1];
 	int		pat_len = ft_strlen(pattern);
 	char	buffer[BUFFER_SIZE];
-	char	*window;
+	char	*window = malloc(pat_len);
 	int		win_len = 0;
-	int		bytes, i, j;
+	int		i, j, bytes;
 
-	window = malloc(pat_len);
 	if (!window)
-	{
-		free(window);
 		return (1);
-	}
 	zero_window(window, pat_len);
 	while ((bytes = read(0, buffer, BUFFER_SIZE)) > 0)
 	{
@@ -63,7 +61,7 @@ int		main(int ac, char **av)
 			{
 				write(1, &window[0], 1);
 				j = 0;
-				while (j < win_len - 1)
+				while (j < win_len)
 				{
 					window[j] = window[j + 1];
 					j++;
@@ -78,8 +76,8 @@ int		main(int ac, char **av)
 					write(1, "*", 1);
 					j++;
 				}
-				zero_window(window, pat_len);
 				win_len = 0;
+				zero_window(window, pat_len);
 			}
 			i++;
 		}

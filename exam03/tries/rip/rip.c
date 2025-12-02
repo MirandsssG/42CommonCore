@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int	paranthesis(char *s)
+int		paranthesis(char *s)
 {
-	int	opened = 0;
-	int	closed = 0;
-	int	i = 0;
+	int		opened = 0;
+	int		closed = 0;
+	int		i = 0;
 
 	while (s[i])
 	{
@@ -22,19 +22,19 @@ int	paranthesis(char *s)
 	return (opened + closed);
 }
 
-int	is_paren(char c)
+int		is_paren(char c)
 {
 	return (c == '(' || c == ')');
 }
 
 void	rip(char *s, int must_fix, int nfix, int pos)
 {
+	int  i = pos;
 	if (nfix == must_fix && paranthesis(s) == 0)
 	{
 		puts(s);
 		return;
 	}
-	int i = pos;
 	while (s[i])
 	{
 		if (is_paren(s[i]))
@@ -46,7 +46,7 @@ void	rip(char *s, int must_fix, int nfix, int pos)
 
 			while (s[i + 1] == save)
 				i++;
-		}
+		}	
 		i++;
 	}
 }
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		return (1);
-	int	must_fix = (paranthesis(av[1]));
+	int must_fix = paranthesis(av[1]);
 	rip(av[1], must_fix, 0, 0);
 	return (0);
 }
