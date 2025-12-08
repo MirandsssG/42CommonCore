@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 void	swap(char *s1, char *s2)
 {
@@ -11,8 +11,8 @@ void	swap(char *s1, char *s2)
 
 void	ft_sort(char *s)
 {
-	int i = 0;
-	int j = 0;
+	int		i = 0;
+	int		j = 0;
 	while (s[i])
 	{
 		j = i + 1;
@@ -29,7 +29,6 @@ void	ft_sort(char *s)
 void	permutations(char *s, int pos)
 {
 	int i = pos;
-
 	if (!s[pos])
 		puts(s);
 	while (i < s[i])

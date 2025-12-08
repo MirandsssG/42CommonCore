@@ -39,15 +39,15 @@ void	zero_window(char *s, int len)
 
 int		main(int ac, char **av)
 {
-	if (ac != 2)
-		return (1);
 	char	*pattern = av[1];
 	int		pat_len = ft_strlen(pattern);
 	char	buffer[BUFFER_SIZE];
 	char	*window = malloc(pat_len);
 	int		win_len = 0;
-	int		i, j, bytes;
+	int		bytes, i, j;
 
+	if (ac != 2)
+		return (1);
 	if (!window)
 		return (1);
 	zero_window(window, pat_len);
@@ -68,7 +68,7 @@ int		main(int ac, char **av)
 				}
 				win_len--;
 			}
-			if (win_len == pat_len && ft_strncmp(window, pattern, pat_len) == 0)
+			if ((win_len == pat_len) & (ft_strncmp(window, pattern, pat_len) == 0))
 			{
 				j = 0;
 				while (j < pat_len)
@@ -88,5 +88,6 @@ int		main(int ac, char **av)
 		write(1, &window[j], 1);
 		j++;
 	}
+	free(window);
 	return (0);
 }
