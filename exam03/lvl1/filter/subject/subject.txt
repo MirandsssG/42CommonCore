@@ -1,0 +1,13 @@
+write a function that reads from the standard output and replaces all found instances of string s and replaces them with the same number of *
+
+echo "1234512300" | ./filter "123" 
+
+***45***00
+
+echo "abcdefg" | ./filter "a" 
+
+*bcdefg
+
+echo "abcdefaaaaaaaaaaaaaaabcdef" | ./filter "abc" 
+
+***defaaaaaaaaaaaaaaa***def
