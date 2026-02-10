@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:43:15 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/11/10 14:25:21 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/10 15:56:02 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	*monitor_routine(void *arg)
 	int			i;
 	int			all_full;
 	long long	time_diff;
+	int			dead_flag;
 
 	while (1)
 	{
@@ -49,12 +50,10 @@ void	*monitor_routine(void *arg)
 			return (NULL);
 		}
 		pthread_mutex_lock(&data->dead_mutex);
-		if (data->dead)
-		{
-			pthread_mutex_unlock(&data->dead_mutex);
-			break;
-		}
+		dead_flag = data->dead;
 		pthread_mutex_unlock(&data->dead_mutex);
+		if (dead_flag)
+			break;
 		usleep(1000);
 	}
 	return (NULL);
