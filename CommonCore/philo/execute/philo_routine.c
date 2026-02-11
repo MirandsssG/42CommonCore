@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:27:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/11/10 14:27:51 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/11 15:07:06 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	*philo_routine(void *arg)
 {
-	t_philo	*philo = (t_philo *)arg;
+	t_philo	*philo;
 
+	philo = (t_philo *)arg;
 	while (1)
 	{
 		pthread_mutex_lock(&philo->data->dead_mutex);
 		if (philo->data->dead)
 		{
 			pthread_mutex_unlock(&philo->data->dead_mutex);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&philo->data->dead_mutex);
 		take_forks(philo);

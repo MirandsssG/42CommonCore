@@ -6,12 +6,12 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/11/10 14:13:19 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/11 15:13:22 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#ifndef PHILO_H
+# define PHILO_H
 
 # include <unistd.h>
 # include <errno.h>
@@ -24,7 +24,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef	struct s_philo
+typedef struct s_philo
 {
 	int				id;
 	int				meals_eaten;
@@ -36,7 +36,7 @@ typedef	struct s_philo
 	pthread_mutex_t	meal_mutex;
 }	t_philo;
 
-typedef	struct s_data
+typedef struct s_data
 {
 	int				number_of_philos;
 	int				time_to_die;
@@ -57,11 +57,11 @@ int			ft_atoi(const char *str);
 
 int			is_valid_arg(char *str);
 
+long long	get_time_ms(void);
+
 // Initialization
 
 int			init_data(t_data *data);
-
-long long	get_time_ms(void);
 
 // Cleanup
 

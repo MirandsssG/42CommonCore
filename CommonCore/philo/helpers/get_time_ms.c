@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   take_forks.c                                       :+:      :+:    :+:   */
+/*   get_time_ms.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 21:30:30 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/11 14:20:13 by mirandsssg       ###   ########.fr       */
+/*   Created: 2026/02/11 14:28:29 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/02/11 14:29:41 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	take_forks(t_philo *philo)
+long long	get_time_ms(void)
 {
-	if (philo->id % 2 == 0)
-	{
-		pthread_mutex_lock(philo->left_fork);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
-	}
-	else
-	{
-		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(philo->left_fork);
-		print_status(philo, "has taken a fork");
-	}
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000LL + tv.tv_usec / 1000);
 }

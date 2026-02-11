@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:51:42 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/10/07 21:49:39 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/11 15:06:00 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	execute(t_data *data)
 	if (start_philo(data))
 		return (1);
 	if (pthread_create(&monitor_thread, NULL, monitor_routine, data) != 0)
-		return(printf("Error: failed to create monitor thread\n"), 1);
+		return (printf("Error: failed to create monitor thread\n"), 1);
 	i = 0;
 	while (i < data->number_of_philos)
 	{
