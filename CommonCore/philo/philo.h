@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/18 13:59:24 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/25 23:05:12 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void		sleep_and_think(t_philo *philo);
 
 // Parsing
 
-int		validate_args(int ac, char **av);
+int			validate_args(int ac, char **av);
 
-void	parse_args(int ac, char **av, t_data *data);
+void		parse_args(int ac, char **av, t_data *data);
 
 #endif
