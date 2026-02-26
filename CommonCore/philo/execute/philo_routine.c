@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:27:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/26 22:41:41 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/26 22:53:03 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	*philo_routine(void *arg)
 		}
 		pthread_mutex_unlock(&philo->data->dead_mutex);
 		take_forks(philo);
+		pthread_mutex_lock(&philo->meal_mutex);
+		philo->last_meal_time = get_time_ms();
+		philo->meals_eaten++;
+		pthread_mutex_unlock(&philo->meal_mutex);
 		eat(philo);
 		put_forks(philo);
 		sleep_and_think(philo);
