@@ -1,1 +1,7 @@
 handle 1 philosopher
+memleaks when ctrl c
+
+./philo 5 800 200 200 - 0 deaths
+./philo 5 800 200 200 7 - 0 deaths and all eat 7
+./philo 4 410 200 200 - 0 deaths
+./philo 4 310 200 100 - 1 death
