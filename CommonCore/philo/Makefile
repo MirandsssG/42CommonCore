@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -Werror -pthread -Iincludes/ -g
 AR = ar rc
 NAME = philo
 SRCS = main.c \
-		$(addprefix helpers/, ft_atoi.c is_valid_arg.c get_time_ms.c) \
+		$(addprefix helpers/, ft_atoi.c is_valid_arg.c get_time_ms.c ft_usleep.c) \
 		$(addprefix initialization/, init_data.c) \
 		$(addprefix cleanup/, cleanup_data.c) \
 		$(addprefix parsing/, parsing.c) \

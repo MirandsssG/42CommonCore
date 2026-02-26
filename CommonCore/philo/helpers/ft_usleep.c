@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_routine.c                                    :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 21:27:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/26 22:41:41 by mirandsssg       ###   ########.fr       */
+/*   Created: 2026/02/26 22:37:49 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/02/26 22:43:02 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	*philo_routine(void *arg)
+void	ft_usleep(long time_in_ms)
 {
-	t_philo	*philo;
+	long	start;
 
-	philo = (t_philo *)arg;
-	if (philo->id % 2 == 0)
-		usleep(1000);
-	while (1)
-	{
-		pthread_mutex_lock(&philo->data->dead_mutex);
-		if (philo->data->dead)
-		{
-			pthread_mutex_unlock(&philo->data->dead_mutex);
-			break ;
-		}
-		pthread_mutex_unlock(&philo->data->dead_mutex);
-		take_forks(philo);
-		eat(philo);
-		put_forks(philo);
-		sleep_and_think(philo);
-	}
-	return (NULL);
+	start = get_time_ms();
+	while (get_time_ms() - start < time_in_ms)
+		usleep(100);
 }

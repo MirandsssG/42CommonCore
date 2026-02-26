@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/25 23:05:12 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/26 22:39:01 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int			ft_atoi(const char *str);
 int			is_valid_arg(char *str);
 
 long long	get_time_ms(void);
+
+void		ft_usleep(long time_in_ms);
 
 // Initialization
 

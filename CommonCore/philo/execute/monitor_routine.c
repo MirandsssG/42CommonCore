@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:43:15 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/11 14:50:11 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/26 22:40:50 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	*monitor_routine(void *arg)
 		pthread_mutex_unlock(&data->dead_mutex);
 		if (dead_flag)
 			break ;
-		usleep(1000);
+		usleep(200);
 	}
 	return (NULL);
 }
