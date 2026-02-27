@@ -6,13 +6,13 @@
 ## Description
 
 **Philosophers** is a concurrency project based on the classic "Dining Philosophers" problem, developed as part of the 42 curriculum.
-The goal of this project is to simulate a group of philosophers who alternate between **thinking** and **eating**, while safely sharing **forks** (resources) without causing **deadlocks** or **data races**.
+The goal of this project is to simulate a group of philosophers who alternate between **thinking**, **eating** and **sleeping**, while safely sharing **forks** (resources) without causing **deadlocks** or **data races**.
 
 The project emphasizes low-level programming and synchronization concepts, including:
 - Thread management using **POSIX threads (pthreads)**
 - Mutual exclusion with **mutexes**
 - Timing and monitoring with `gettimeofday`
-- Deadlock avoidance strategies
+- Deadlock and data races avoidance strategies
 - Concurrency logic and resource sharing
 
 This project provides a deeper understanding of **concurrent programming** and the challenges of **thread synchronization** in C.
@@ -77,15 +77,13 @@ number_of_times_each_philosopher_must_eat (optional) – simulation stops after 
 ## Resources
 ### Documentation & References
 
-Dining Philosophers Wikipedia: https://en.wikipedia.org/wiki/Dining_philosophers_problem
+Process vs Thread: https://medium.com/@utkarshshukla.author/process-vs-thread-understanding-the-differences-and-when-to-use-each-9a9f0cfb6188
 
-pthread_create man: https://linux.die.net/man/3/pthread_create
+Mastering Concurrency in C with Pthreads: A Comprehensive Guide: https://dev.to/emanuelgustafzon/mastering-concurrency-in-c-with-pthreads-a-comprehensive-guide-56je
 
-pthread mutex lock man: https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html
+Mutex Introduction (pthreads) | C Programming Tutorial: https://www.youtube.com/watch?v=raLCgPK-Igc
 
-pthread mutex destroy man: https://man7.org/linux/man-pages/man3/pthread_mutex_destroy.3p.html
-
-get time of day man: https://man7.org/linux/man-pages/man2/gettimeofday.2.html
+How to use gettimeofday function: https://www.youtube.com/watch?v=cunJcNgtxMk
 
 
 ## AI Usage
@@ -94,7 +92,8 @@ AI tools were used as a support resource during the development of this project,
 
 - Clarifying concurrency concepts such as threads, mutexes, deadlocks, and data races  
 - Understanding synchronization strategies and timing mechanisms  
-- Drafting pseudocode for philosopher routines and simulation flow  
-- Reviewing logic to avoid deadlocks and ensure proper resource management
+- Help on how to structure the project
+- Reviewing logic to avoid deadlocks, data races and ensure proper resource management
+- Improve this document's structure
 
 All design decisions, implementation, and final code were written and validated by the project author, in compliance with the 42 rules regarding academic integrity.
