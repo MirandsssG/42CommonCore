@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 21:27:36 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/26 22:53:03 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/26 22:57:54 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*philo_routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		usleep(1000);
+		usleep(3000);
 	while (1)
 	{
 		pthread_mutex_lock(&philo->data->dead_mutex);
