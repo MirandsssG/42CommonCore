@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 20:38:13 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/27 00:06:04 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/02/27 00:25:20 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	cleanup_data(t_data *data)
 		i = 0;
 		while (i < data->number_of_philos)
 		{
-			pthread_join(data->philos[i].thread, NULL);
+			pthread_mutex_destroy(&data->philos[i].meal_mutex);
 			i++;
 		}
+		free(data->philos);
 	}
 	if (data->forks)
 	{
@@ -34,19 +35,7 @@ void	cleanup_data(t_data *data)
 			i++;
 		}
 		free(data->forks);
-		data->forks = NULL;
 	}
-	if (data->philos)
-	{
-		i = 0;
-		while (i < data->number_of_philos)
-		{
-			pthread_mutex_destroy(&data->philos[i].meal_mutex);
-			i++;
-		}
-		free(data->philos);
-		data->philos = NULL;
-	}
-	pthread_mutex_destroy(&data->dead_mutex);
 	pthread_mutex_destroy(&data->lock_print);
+	pthread_mutex_destroy(&data->dead_mutex);
 }
