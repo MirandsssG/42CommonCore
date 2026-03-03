@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   take_forks.c                                       :+:      :+:    :+:   */
+/*   handle_one.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 21:30:30 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/03 07:45:38 by mirandsssg       ###   ########.fr       */
+/*   Created: 2026/03/03 07:08:47 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/03/03 07:09:19 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	take_forks(t_philo *philo)
+int	handle_one(t_data *data)
 {
-	if (philo->id % 2 == 0)
-	{
-		pthread_mutex_lock(philo->left_fork);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
-	}
-	else
-	{
-		pthread_mutex_lock(philo->right_fork);
-		print_status(philo, "has taken a fork");
-		pthread_mutex_lock(philo->left_fork);
-		print_status(philo, "has taken a fork");
-	}
+	printf("0 1 has taken a fork\n");
+	usleep(data->time_to_die * 1000);
+	printf("%d 1 died\n", data->time_to_die);
+	return (0);
 }

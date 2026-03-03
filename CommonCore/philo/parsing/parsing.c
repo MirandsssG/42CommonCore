@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 13:58:32 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/18 14:17:11 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/03 06:52:49 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int	validate_args(int ac, char **av)
 {
 	int	i;
+	int	value;
 
 	i = 1;
-	if (ac == 6 && ft_atoi(av[5]) <= 0)
-		return (printf("Must eat count must be greater than 0!\n"), 1);
 	if (ac != 5 && ac != 6)
 		return (printf("Invalid initialization!\n"
 				"Use ./philo (Number of Philosophers) (Time to die) "
@@ -27,6 +26,9 @@ int	validate_args(int ac, char **av)
 	{
 		if (!is_valid_arg(av[i]))
 			return (printf("Invalid arguments!\n"), 1);
+		value = ft_atoi(av[i]);
+		if (value <= 0)
+			return (printf("Arguments must be positive integers!\n"), 1);
 		i++;
 	}
 	return (0);

@@ -7,7 +7,7 @@ SRCS = main.c \
 		$(addprefix initialization/, init_data.c) \
 		$(addprefix cleanup/, cleanup_data.c) \
 		$(addprefix parsing/, parsing.c) \
-		$(addprefix execute/, execute.c philo_routine.c start_philo.c monitor_routine.c) \
+		$(addprefix execute/, execute.c philo_routine.c start_philo.c monitor_routine.c handle_one.c) \
 		$(addprefix actions/, eat.c put_forks.c sleep_and_think.c take_forks.c print_status.c) 
 OBJ_DIR = objects
 OBJ = $(SRCS:.c=.o)

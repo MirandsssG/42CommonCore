@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:05:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/02/26 22:39:01 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/03 07:09:51 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void		*philo_routine(void *arg);
 int			start_philo(t_data *data);
 
 void		*monitor_routine(void *arg);
+
+int			handle_one(t_data *data);
 
 // Actions
 
