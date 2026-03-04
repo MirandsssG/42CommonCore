@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:57:54 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/03 07:11:38 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/04 17:39:54 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	main(int ac, char **av)
 	if (execute(&data))
 		return (cleanup_data(&data), 1);
 	cleanup_data(&data);
+	printf("Program finished Successfully\n");
 	return (0);
 }
