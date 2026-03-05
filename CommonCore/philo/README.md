@@ -8,14 +8,12 @@
 **Philosophers** is a concurrency project based on the classic "Dining Philosophers" problem, developed as part of the 42 curriculum.
 The goal of this project is to simulate a group of philosophers who alternate between **thinking**, **eating** and **sleeping**, while safely sharing **forks** (resources) without causing **deadlocks** or **data races**.
 
-The project emphasizes low-level programming and synchronization concepts, including:
+The project emphasizes synchronization concepts, including:
 - Thread management using **POSIX threads (pthreads)**
 - Mutual exclusion with **mutexes**
 - Timing and monitoring with `gettimeofday`
 - Deadlock and data races avoidance strategies
 - Concurrency logic and resource sharing
-
-This project provides a deeper understanding of **concurrent programming** and the challenges of **thread synchronization** in C.
 
 
 ---
