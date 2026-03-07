@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:44:28 by tafonso          ###   ########.fr       */
+/*   Created: 2025/07/11 01:26:18 by mirandsssg        #+#    #+#             */
+/*   Updated: 2025/07/11 01:27:28 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
-	int	i;
+	char	*joined;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	joined = ft_strjoin(s1, s2);
+	free(s1);
+	return (joined);
 }

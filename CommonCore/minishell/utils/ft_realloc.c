@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_builtin.c                                      :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: dluis-ma <dluis-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 16:19:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:40:22 by tafonso          ###   ########.fr       */
+/*   Created: 2026/03/06 21:37:53 by dluis-ma          #+#    #+#             */
+/*   Updated: 2026/03/06 21:44:16 by dluis-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	env_builtin(t_data *data)
+void	*ft_realloc(void *ptr, size_t new_size, size_t old_count)
 {
-	t_env	*current;
+	void	*new_ptr;
 
-	current = data->env_list;
-	while (current)
-	{
-		if (current->value)
-			printf("%s=%s\n", current->key, current->value);
-		else
-			printf("%s=\n", current->key);
-		current = current->next;
-	}
-	return (0);
+	if (!ptr)
+		return (malloc(new_size));
+	new_ptr = malloc(new_size);
+	if (!new_ptr)
+		return (NULL);
+	ft_memcpy(new_ptr, ptr, old_count);
+	free(ptr);
+	return (new_ptr);
 }

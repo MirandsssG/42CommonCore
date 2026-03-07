@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_builtin.c                                      :+:      :+:    :+:   */
+/*   syntax_helper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/21 16:19:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:40:22 by tafonso          ###   ########.fr       */
+/*   Created: 2026/01/17 17:43:05 by tafonso           #+#    #+#             */
+/*   Updated: 2026/01/17 17:43:15 by tafonso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	env_builtin(t_data *data)
+int	is_pipe(const char *t)
 {
-	t_env	*current;
+	return (ft_strcmp(t, "|") == 0);
+}
 
-	current = data->env_list;
-	while (current)
-	{
-		if (current->value)
-			printf("%s=%s\n", current->key, current->value);
-		else
-			printf("%s=\n", current->key);
-		current = current->next;
-	}
-	return (0);
+int	is_redirection(const char *t)
+{
+	return (!ft_strcmp(t, "<")
+		|| !ft_strcmp(t, ">")
+		|| !ft_strcmp(t, ">>")
+		|| !ft_strcmp(t, "<<"));
+}
+
+int	is_operator(const char *t)
+{
+	return (is_pipe(t) || is_redirection(t));
+}
+
+int	is_unsupported(const char *t)
+{
+	return (!ft_strcmp(t, "||")
+		|| !ft_strcmp(t, "&&")
+		|| !ft_strcmp(t, ";"));
 }

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   check_before_execve.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:44:28 by tafonso          ###   ########.fr       */
+/*   Created: 2026/01/10 00:26:29 by tafonso           #+#    #+#             */
+/*   Updated: 2026/01/14 19:55:13 by tafonso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlen(const char *s)
+int	is_directory(char *path)
 {
-	int	i;
+	struct stat	st;
 
-	i = 0;
-	if (!s)
+	if (stat(path, &st) == -1)
 		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	return (S_ISDIR(st.st_mode));
 }

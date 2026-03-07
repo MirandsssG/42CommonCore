@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:44:28 by tafonso          ###   ########.fr       */
+/*   Created: 2026/03/04 23:46:30 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/03/06 00:44:50 by tafonso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlen(const char *s)
+void	free_all(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!data)
+		return ;
+	free_cycle(data);
+	if (data->env_list)
+	{
+		free_env_list(data->env_list);
+		data->env_list = NULL;
+	}
+	if (data->pwd)
+		free(data->pwd);
+	rl_clear_history();
 }

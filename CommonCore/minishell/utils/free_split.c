@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:44:28 by tafonso          ###   ########.fr       */
+/*   Created: 2025/07/11 01:15:27 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/01/14 19:54:37 by tafonso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlen(const char *s)
+void	free_split(char **arr)
 {
 	int	i;
 
+	if (!arr)
+		return ;
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
+	while (arr[i])
+	{
+		free(arr[i]);
 		i++;
-	return (i);
+	}
+	free(arr);
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   free_cycle.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tafonso <tafonso@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 03:14:05 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/01/18 18:44:28 by tafonso          ###   ########.fr       */
+/*   Created: 2026/03/04 23:46:23 by mirandsssg        #+#    #+#             */
+/*   Updated: 2026/03/05 17:57:39 by tafonso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlen(const char *s)
+void	free_cycle(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!data)
+		return ;
+	free(data->input);
+	data->input = NULL;
+	free(data->var_name);
+	data->var_name = NULL;
+	if (data->tokens)
+	{
+		free_split(data->tokens);
+		data->tokens = NULL;
+	}
+	if (data->cmd)
+	{
+		free_cmds(data->cmd);
+		data->cmd = NULL;
+	}
 }
