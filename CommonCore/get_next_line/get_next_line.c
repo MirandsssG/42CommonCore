@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 14:43:24 by mirandsssg        #+#    #+#             */
-/*   Updated: 2025/05/21 14:43:26 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/08 17:02:43 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,4 @@ char	*get_next_line(int fd)
 		}
 	}
 	return (line);
-}
-
-int main(void)
-{
-	char *line;
-
-    int fd = open("test_file.txt", O_RDONLY);
-    if (fd < 0)
-    {
-        perror("Error opening file");
-        return (1);
-    }
-
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-    line = get_next_line(fd);
-	printf("Line: %s", line);
-	free(line);
-
-    close(fd);
-    return (0);
 }
