@@ -48,7 +48,7 @@ This GitHub serves as my **developer portfolio**, documenting my projects and gr
 | Project           | Description                                                                |
 | ----------------- | -------------------------------------------------------------------------- |
 | **libft**         | Custom C library implementing common standard functions                    |
-| **Born2beroot**   | Linux system administration project focused on virtualization and security |
+| **born2beroot**   | Linux system administration project focused on virtualization and security |
 | **ft_printf**     | Reimplementation of the printf function                                    |
 | **get_next_line** | Function that reads files line by line                                     |
 | **minitalk**      | Client-server communication using UNIX signals                             |
@@ -67,9 +67,9 @@ https://github.com/MirandsssG/42-Projects
 
 🔗 https://github.com/MirandsssG/42-Projects/tree/main/CommonCore/libft
 
-### Born2beroot
+### born2beroot
 
-🔗 https://github.com/MirandsssG/42-Projects/tree/main/CommonCore/Born2beroot
+🔗 https://github.com/MirandsssG/42-Projects/tree/main/CommonCore/born2beroot
 
 ### ft_printf
 
@@ -112,7 +112,7 @@ https://github.com/MirandsssG/42-Projects
 ```
 libft
  ↓
-Born2beroot
+born2beroot
  ↓
 ft_printf
  ↓
