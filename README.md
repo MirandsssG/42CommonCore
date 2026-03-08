@@ -129,7 +129,7 @@ minishell
 
 ---
 
-# 📫 Contact
+# 📫 Contacts
 
 💼 **LinkedIn**
 https://www.linkedin.com/in/diogo-luis-miranda/
