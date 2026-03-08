@@ -29,10 +29,6 @@ This GitHub serves as my **developer portfolio**, documenting my projects and gr
 
 # 🛠️ Technologies & Tools
 
-<p align="center">
-<img src="https://skillicons.dev/icons?i=c,cpp,bash,linux,git,vim,vscode" />
-</p>
-
 ### Languages
 
 * C
