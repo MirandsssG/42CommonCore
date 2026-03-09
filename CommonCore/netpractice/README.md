@@ -70,3 +70,5 @@ Whenever we want to, we can click the **Get my config** button and it will extra
 What is Subnetting? - Subnetting Mastery - 7 parts: https://www.youtube.com/watch?v=BWZ-MHIhqjM
 
 Net_Practise Reference Repository: https://github.com/caroldaniel/42sp-cursus-netpractice?tab=readme-ov-file
+
+NetworkChuck You SUCK at subnetting series: https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF&index=1
