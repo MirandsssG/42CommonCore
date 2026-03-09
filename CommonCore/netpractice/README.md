@@ -29,7 +29,7 @@ This project helps develop an understanding of:
 
 -Network segmentation
 
--Communication between hosts and routers
+-Communication between hosts, routers and switches
 
 -Broadcast addresses
 
