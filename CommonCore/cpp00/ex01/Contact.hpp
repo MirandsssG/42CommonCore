@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 00:19:08 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 13:04:24 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ private:
 public:
 	Contact( void );
 	~Contact( void );
+	void	input_contact();
+	void	display_short(int index) const;
+	void	display_full() const;
 	
 };
 

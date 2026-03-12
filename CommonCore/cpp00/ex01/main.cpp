@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:53 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 00:10:01 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 12:17:32 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	main(void)
 			continue;
 		}
 		else if (input == "ADD")
-			continue;
+			phonebook.add_contacts();
 		else if (input == "SEARCH")
-			continue;
+			phonebook.search_contacts();
 		else if (input == "EXIT")
 		{
 			std::cout << "Exiting My Awesome Phonebook. Goodbye!" << std::endl;
