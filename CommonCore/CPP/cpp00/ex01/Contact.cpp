@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:58 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 17:34:51 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 23:40:18 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void	Contact::input_contact() {
 	while (true)
 	{
 		std::cout << "Enter first name: ";
-		std::getline(std::cin, first_name);
+		if (!std::getline(std::cin, first_name))
+		{
+			std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+			exit (1);
+		}
 		if (!first_name.empty() && only_letters(first_name))
 			break;
 		std::cout << "Invalid input. First name must contain only letters and must not be empty." << std::endl;
@@ -52,7 +56,11 @@ void	Contact::input_contact() {
 	while (true)
 	{
 		std::cout << "Enter last name: ";
-		std::getline(std::cin, last_name);
+		if (!std::getline(std::cin, last_name))
+		{
+			std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+			exit (1);
+		}
 		if (!last_name.empty() && only_letters(last_name))
 			break;
 		std::cout << "Invalid input. Last name must contain only letters and must not be empty." << std::endl;
@@ -60,7 +68,11 @@ void	Contact::input_contact() {
 	while (true)
 	{
 		std::cout << "Enter nickname: ";
-		std::getline(std::cin, nickname);
+		if (!std::getline(std::cin, nickname))
+		{
+			std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+			exit (1);
+		}
 		if (!nickname.empty() && only_letters(nickname))
 			break;
 		std::cout << "Invalid input. Nickname must contain only letters and must not be empty." << std::endl;
@@ -68,15 +80,23 @@ void	Contact::input_contact() {
 	while (true)
 	{
 		std::cout << "Enter phone numbers: ";
-		std::getline(std::cin, phone_number);
+		if (!std::getline(std::cin, phone_number))
+		{
+			std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+			exit (1);
+		}
 		if (!phone_number.empty() && only_numbers(phone_number))
 			break;
-		std::cout << "Invalid input. Phone number must contain only letters and must not be empty." << std::endl;
+		std::cout << "Invalid input. Phone number must contain only numbers and must not be empty." << std::endl;
 	}
 	while (true)
 	{
 		std::cout << "Enter darkest secret: ";
-		std::getline(std::cin, darkest_secret);
+		if (!std::getline(std::cin, darkest_secret))
+		{
+			std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+			exit (1);
+		}
 		if (!darkest_secret.empty())
 			break;
 	}

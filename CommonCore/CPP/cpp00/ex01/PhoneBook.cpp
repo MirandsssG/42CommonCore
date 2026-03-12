@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 17:37:55 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 23:44:50 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ void	PhoneBook::search_contacts() const {
 	
 	std::cout << "Enter the index of the contact to display: ";
 	std::string	input;
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+	{
+		std::cout << std::endl << "EOF detected. Exiting." << std::endl;
+		exit (1);
+	}
 
 	if (input.empty() || input.length() > 1 || !isdigit(input[0]))
 	{

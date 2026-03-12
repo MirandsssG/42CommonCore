@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:55 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 17:32:41 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 23:38:58 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact {
 
