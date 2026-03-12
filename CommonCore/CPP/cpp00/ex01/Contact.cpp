@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:58 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 13:07:06 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 17:34:51 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ Contact::Contact( void ) {
 
 Contact::~Contact( void ) {	
 	return;
+}
+
+static	std::string truncate(const std::string& str) {
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	return (str);
 }
 
 bool	only_letters(const std::string& str) {
@@ -77,9 +83,16 @@ void	Contact::input_contact() {
 }
 
 void	Contact::display_short(int index) const {
-	
+	std::cout << std::setw(10) << index << "|"
+			  << std::setw(10) << truncate(first_name) << "|"
+			  << std::setw(10) << truncate(last_name) << "|"
+			  << std::setw(10) << truncate(nickname) << std::endl;
 }
 
 void	Contact::display_full() const {
-	
+	std::cout << "First Name: " << first_name << std::endl;
+	std::cout << "Last Name: " << last_name << std::endl;
+	std::cout << "Nickname: " << nickname << std::endl;
+	std::cout << "Phone Number: " << phone_number << std::endl;
+	std::cout << "Darkest Secret: " << darkest_secret << std::endl;
 }

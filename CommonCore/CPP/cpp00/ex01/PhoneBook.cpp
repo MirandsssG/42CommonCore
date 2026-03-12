@@ -6,7 +6,7 @@
 /*   By: mirandsssg <mirandsssg@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 21:47:49 by mirandsssg        #+#    #+#             */
-/*   Updated: 2026/03/12 13:01:22 by mirandsssg       ###   ########.fr       */
+/*   Updated: 2026/03/12 17:37:55 by mirandsssg       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PhoneBook::PhoneBook( void ) {
 	index = 0;
+	count = 0;
 	return;
 }
 
@@ -34,5 +35,36 @@ void	PhoneBook::add_contacts() {
 }
 
 void	PhoneBook::search_contacts() const {
-	std::cout << "SEARCH confirmed" << std::endl;
+	if (count == 0)
+	{
+		std::cout << "No contacts in the phonebook. Please add some contacts first." << std::endl;
+		return;
+	}
+	
+	std::cout << std::setw(10) << "Index" << "|"
+			  << std::setw(10) << "First Name" << "|"
+			  << std::setw(10) << "Last Name" << "|"
+			  << std::setw(10) << "Nickname" << std::endl;
+	
+	for (int i = 0; i < count; i++)
+		contacts[i].display_short(i);
+	
+	std::cout << "Enter the index of the contact to display: ";
+	std::string	input;
+	std::getline(std::cin, input);
+
+	if (input.empty() || input.length() > 1 || !isdigit(input[0]))
+	{
+		std::cout << "Invalid index. Leaving search command" << std::endl;
+		return;
+	}
+
+	int	index = input[0] - '0';
+	if (index < 0 || index >= count)
+	{
+		std::cout << "Invalid index. Leaving search command" << std::endl;
+		return;
+	}
+	
+	contacts[index].display_full();
 }
